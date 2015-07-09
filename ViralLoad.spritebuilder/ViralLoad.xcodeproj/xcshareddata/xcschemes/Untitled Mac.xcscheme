@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7A4035FE19DDEE84007B6E8F"
-               BuildableName = "Untitled Mac.app"
-               BlueprintName = "Untitled Mac"
-               ReferencedContainer = "container:Untitled.xcodeproj">
+               BuildableName = "ViralLoad Mac.app"
+               BlueprintName = "ViralLoad Mac"
+               ReferencedContainer = "container:ViralLoad.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7A4035FE19DDEE84007B6E8F"
-            BuildableName = "Untitled Mac.app"
-            BlueprintName = "Untitled Mac"
-            ReferencedContainer = "container:Untitled.xcodeproj">
+            BuildableName = "ViralLoad Mac.app"
+            BlueprintName = "ViralLoad Mac"
+            ReferencedContainer = "container:ViralLoad.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -48,13 +48,14 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7A4035FE19DDEE84007B6E8F"
-            BuildableName = "Untitled Mac.app"
-            BlueprintName = "Untitled Mac"
-            ReferencedContainer = "container:Untitled.xcodeproj">
+            BuildableName = "ViralLoad Mac.app"
+            BlueprintName = "ViralLoad Mac"
+            ReferencedContainer = "container:ViralLoad.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -66,13 +67,14 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7A4035FE19DDEE84007B6E8F"
-            BuildableName = "Untitled Mac.app"
-            BlueprintName = "Untitled Mac"
-            ReferencedContainer = "container:Untitled.xcodeproj">
+            BuildableName = "ViralLoad Mac.app"
+            BlueprintName = "ViralLoad Mac"
+            ReferencedContainer = "container:ViralLoad.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

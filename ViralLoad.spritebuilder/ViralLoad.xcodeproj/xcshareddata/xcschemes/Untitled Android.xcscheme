@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "927F6198196C771E000F43EF"
-               BuildableName = "Untitled Android.app"
-               BlueprintName = "Untitled Android"
-               ReferencedContainer = "container:Untitled.xcodeproj">
+               BuildableName = "ViralLoad Android.app"
+               BlueprintName = "ViralLoad Android"
+               ReferencedContainer = "container:ViralLoad.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "927F6198196C771E000F43EF"
-            BuildableName = "Untitled Android.app"
-            BlueprintName = "Untitled Android"
-            ReferencedContainer = "container:Untitled.xcodeproj">
+            BuildableName = "ViralLoad Android.app"
+            BlueprintName = "ViralLoad Android"
+            ReferencedContainer = "container:ViralLoad.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -48,13 +48,14 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "927F6198196C771E000F43EF"
-            BuildableName = "Untitled Android.app"
-            BlueprintName = "Untitled Android"
-            ReferencedContainer = "container:Untitled.xcodeproj">
+            BuildableName = "ViralLoad Android.app"
+            BlueprintName = "ViralLoad Android"
+            ReferencedContainer = "container:ViralLoad.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -66,13 +67,14 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "927F6198196C771E000F43EF"
-            BuildableName = "Untitled Android.app"
-            BlueprintName = "Untitled Android"
-            ReferencedContainer = "container:Untitled.xcodeproj">
+            BuildableName = "ViralLoad Android.app"
+            BlueprintName = "ViralLoad Android"
+            ReferencedContainer = "container:ViralLoad.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

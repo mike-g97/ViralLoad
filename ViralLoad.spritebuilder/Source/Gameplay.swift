@@ -68,8 +68,8 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
             
             var virusWorldSpace = convertToWorldSpace(virus.position)
 
-            if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 10
-            && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 10 {
+            if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) <= 60
+            && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) <= 60 {
 
                 viruses.removeAtIndex(find(viruses, virus)!)
 //               virus.color = CCColor.blackColor()
@@ -147,8 +147,8 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
 
 //  Sets velocity according to it's spawn position on the screen
     func virusMovementDirection(virus :Virus){
-        var x = CGFloat(computer.position.x - virus.position.x)
-        var y = CGFloat(computer.position.y - virus.position.y)
+        var x = CGFloat(computer.position.x - virus.position.x) / 10
+        var y = CGFloat(computer.position.y - virus.position.y) / 10
         
         virus.physicsBody.velocity = ccp(x, y)
     }

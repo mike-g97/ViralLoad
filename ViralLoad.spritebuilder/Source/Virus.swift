@@ -9,9 +9,12 @@
 import UIKit
 
 class Virus: CCSprite {
-    enum spawnSide {
-        case Left, Right, Top, Bottom
+
+    func didLoadFromCCB () {
+        
+
+        
     }
     
-    var spawn :spawnSide? 
+    
 }

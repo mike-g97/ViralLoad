@@ -43,6 +43,26 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         
     }
     
+    func start(){
+        gameStates = .Playing
+        
+        for i in 0..<10{
+            spawnVirus()
+        }
+    }
+    
+    
+    override func update(delta: CCTime) {
+        var randomSpawner = arc4random_uniform(101)
+        
+        if randomSpawner <= 10 {
+            spawnVirus()
+        }
+        
+        
+//        sleep(1)
+    }
+    
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         for virus in viruses {
             
@@ -72,7 +92,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
     }
     
 //  Spawn virus at a time on either four sides of the screen randomly
-    func spawnVirus() -> Virus{
+    func spawnVirus(){
         let virusType = Int(arc4random_uniform(2))
         let screenSide = Int(arc4random_uniform(4))
         let percent = Float(arc4random_uniform(101)) / 100
@@ -95,6 +115,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
             virus.scaleY = 0.015
             gamePhysicsNode.addChild(virus)
         }
+        
         
 //      Generate position on either four sides of the screen
         if screenSide == 0{
@@ -119,17 +140,15 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
             virus.position = CGPoint(x: x, y: y)
         }
         
-        return virus
+        virusMovementDirection(virus)
+        viruses.append(virus)
     }
-    
-    override func update(delta: CCTime) {
-    <#code#>
-    }
+
 
 //  Sets velocity according to it's spawn position on the screen
     func virusMovementDirection(virus :Virus){
-        var x = CGFloat(computer.position.x - virus.position.x) / 2
-        var y = CGFloat(computer.position.y - virus.position.y) / 2
+        var x = CGFloat(computer.position.x - virus.position.x)
+        var y = CGFloat(computer.position.y - virus.position.y)
         
         virus.physicsBody.velocity = ccp(x, y)
     }
@@ -146,15 +165,6 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         return true
     }
     
-    func start(){
-        gameStates = .Playing
-        
-        for i in 0..<10{
-            var virus :Virus!
-            virus = spawnVirus()
-            virusMovementDirection(virus)
-            viruses.append(virus)
-        }
-    }
+
     
 }

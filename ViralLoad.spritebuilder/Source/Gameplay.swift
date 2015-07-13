@@ -22,6 +22,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
     weak var gamePhysicsNode :CCPhysicsNode!
     var viruses :[Virus] = []
     var gameStates :GameStates = .Title
+    var virusSpeed :Int = 10
     
     var load :Int = 0{
         didSet{
@@ -49,18 +50,17 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         for i in 0..<10{
             spawnVirus()
         }
+        
+        self.schedule("speedUpViruses", interval: 10)
     }
     
     
     override func update(delta: CCTime) {
         var randomSpawner = arc4random_uniform(101)
         
-        if randomSpawner <= 10 {
+        if randomSpawner <= 5 {
             spawnVirus()
         }
-        
-        
-//        sleep(1)
     }
     
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
@@ -68,13 +68,14 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
             
             var virusWorldSpace = convertToWorldSpace(virus.position)
 
-            if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 10
-            && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 10 {
+            if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 50
+            && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 50 {
 
                 viruses.removeAtIndex(find(viruses, virus)!)
 //               virus.color = CCColor.blackColor()
                 virus.removeFromParent()
                 currentScore++
+                
             }
             
         }
@@ -86,7 +87,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         }else if !isGameOver(){
             viruses.removeAtIndex(find(viruses, virus)!)
             virus.removeFromParent()
-            load = load + 20
+            load = load + 10
         }
         return true
     }
@@ -106,13 +107,11 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
 //      Generate random type
         if virusType == 0{
             virus = CCBReader.load("Virus1") as! Virus
-            virus.scaleX = 0.015
-            virus.scaleY = 0.015
+            virus.scale = 0.018
             gamePhysicsNode.addChild(virus)
         } else if virusType == 1{
             virus = CCBReader.load("Virus2") as! Virus
-            virus.scaleX = 0.015
-            virus.scaleY = 0.015
+            virus.scale = 0.018
             gamePhysicsNode.addChild(virus)
         }
         
@@ -144,17 +143,22 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         viruses.append(virus)
     }
 
-
+//  Speeds up velocity of viruses by 1
+    func speedUpViruses(){
+        virusSpeed--
+    }
+    
 //  Sets velocity according to it's spawn position on the screen
     func virusMovementDirection(virus :Virus){
-        var x = CGFloat(computer.position.x - virus.position.x)
-        var y = CGFloat(computer.position.y - virus.position.y)
+        var x = CGFloat(computer.position.x - virus.position.x) / CGFloat(virusSpeed)
+        var y = CGFloat(computer.position.y - virus.position.y) / CGFloat(virusSpeed)
         
         virus.physicsBody.velocity = ccp(x, y)
     }
     
     func triggerGameOver(){
         gameStates = .GameOver
+        self.unschedule("speedUpViruses")
         
     }
     

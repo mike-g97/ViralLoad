@@ -28,6 +28,9 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         }
     }
     
+    
+    
+    //Julian is absolutely amazing
     var currentScore :Int = 0{
         didSet{
             score.string = "\(currentScore)"

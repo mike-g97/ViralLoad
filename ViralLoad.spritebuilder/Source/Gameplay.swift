@@ -20,7 +20,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
     weak var gamePhysicsNode :CCPhysicsNode!
     var viruses :[Virus] = []
     var gameStates :GameStates = .Title
-    var virusSpeed :Int = 10
+    var virusSpeed :Int = 5
     
     var load :Int = 0{
         didSet{
@@ -51,8 +51,12 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
 //        for virus in viruses {
 //            virus.changeVirusMode()
 //        }
+        if canSpeedUpViruses(){
+            self.schedule("speedUpViruses", interval: 20)
+        }else{
+            self.unschedule("speedUpViruses")
+        }
         
-        self.schedule("speedUpViruses", interval: 10)
         
         
     }
@@ -89,6 +93,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         }
     }
     
+//  Detects collision between the collision types virus & computer
     func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, virus: Virus!, computer: CCNode!) -> ObjCBool {
         if isGameOver() {
             triggerGameOver()
@@ -98,6 +103,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
             load = load + 10
         }
         
+        //I did this because it was the hackiest way to get the program to load to my device
         let bool1 : Bool = true
         let myBool = ObjCBool(bool1)
         
@@ -159,6 +165,14 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
     func speedUpViruses(){
         virusSpeed--
     }
+
+//  Checks to see if the viruses speed can be adjusted any further
+    func canSpeedUpViruses() ->Bool{
+        if virusSpeed == 1{
+            return false
+        }
+        return true
+    }
     
 //  Sets velocity according to it's spawn position on the screen
     func virusMovementDirection(virus :Virus){
@@ -167,7 +181,8 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         
         virus.physicsBody.velocity = ccp(x, y)
     }
-    
+ 
+//
     func triggerGameOver(){
         Singleton.sharedInstance.score = currentScore
         

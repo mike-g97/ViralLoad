@@ -1,22 +1,11 @@
 //
-
 //  Gameplay.swift
-
 //  ViralLoad
-
-//
-
+//  Made with <3 by Mike
 //  Created by Mikhael Gonzalez on 7/9/15.
-
 //  Copyright (c) 2015 Apportable. All rights reserved.
-
 //
-
-
-
 import Foundation
-
-
 
 class Gameplay: CCNode, CCPhysicsCollisionDelegate {
 
@@ -32,7 +21,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
     weak var gamePhysicsNode :CCPhysicsNode!
     var viruses :[Virus] = []
     var gameStates :GameStates = .Title
-    var virusSpeed :Int = 5
+    var virusSpeed :Int = 3
     
     var load :Int = 0{
         didSet{

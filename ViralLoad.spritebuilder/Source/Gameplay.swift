@@ -21,7 +21,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
     weak var gamePhysicsNode :CCPhysicsNode!
     var viruses :[Virus] = []
     var gameStates :GameStates = .Title
-    var virusSpeed :Int = 3
+    var virusSpeed :Int = 5
     
     var load :Int = 0{
         didSet{
@@ -94,7 +94,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         }else if !isGameOver(){
             viruses.removeAtIndex(find(viruses, virus)!)
             virus.removeFromParent()
-            load = load + 10
+            load = load + 5
         }
 
         //  I did this because it was the hackiest way to get the program to load to my device

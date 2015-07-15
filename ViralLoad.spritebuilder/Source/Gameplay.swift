@@ -49,9 +49,9 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
             spawnVirus()
         }
    
-        //  for virus in viruses {
-        //      virus.changeVirusMode()
-        //   }
+          for virus in viruses {
+              virus.changeVirusMode()
+           }
         
         if canSpeedUpViruses(){
             self.schedule("speedUpViruses", interval: 20)
@@ -66,9 +66,9 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         if randomSpawner <= 5 {
             spawnVirus()
 
-            //  for virus in viruses {
-            //       virus.changeVirusMode()
-            //   }
+              for virus in viruses {
+                   virus.changeVirusMode()
+               }
         }
     }
     

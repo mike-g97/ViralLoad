@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Apportable. All rights reserved.
 //
 
-import UIKit
 
 class Singleton: NSObject {
-   
+   static let sharedInstance = Singleton()
+    var score :Int!
 }

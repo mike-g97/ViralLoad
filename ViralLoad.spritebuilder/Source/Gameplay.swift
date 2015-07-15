@@ -6,15 +6,13 @@
 //  Copyright (c) 2015 Apportable. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class Gameplay: CCNode, CCPhysicsCollisionDelegate {
     
     enum GameStates {
         case Title, Playing, GameOver
     }
-    
-    let defaults = NSUserDefaults.standardUserDefaults()
     
     weak var loadPercentage :CCLabelTTF!
     weak var score :CCLabelTTF!
@@ -41,7 +39,6 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         gamePhysicsNode.collisionDelegate = self
         
         start()
-        
     }
     
     func start(){
@@ -51,7 +48,13 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
             spawnVirus()
         }
         
+//        for virus in viruses {
+//            virus.changeVirusMode()
+//        }
+        
         self.schedule("speedUpViruses", interval: 10)
+        
+        
     }
     
     
@@ -60,6 +63,10 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         
         if randomSpawner <= 5 {
             spawnVirus()
+//            for virus in viruses {
+//                virus.changeVirusMode()
+//            }
+            
         }
     }
     
@@ -69,10 +76,11 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
             var virusWorldSpace = convertToWorldSpace(virus.position)
 
             if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 50
-            && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 50 {
+                && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 50
+               /* && virus.mode == .Vulnerable*/{
 
                 viruses.removeAtIndex(find(viruses, virus)!)
-//               virus.color = CCColor.blackColor()
+
                 virus.removeFromParent()
                 currentScore++
                 
@@ -157,18 +165,24 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
     }
     
     func triggerGameOver(){
-        gameStates = .GameOver
+        Singleton.sharedInstance.score = currentScore
+        
+        let gameOver = CCBReader.loadAsScene("GameOver")
+        
         self.unschedule("speedUpViruses")
+        
+        gameStates = .GameOver
+        CCDirector.sharedDirector().replaceScene(gameOver)
+        
+       
         
     }
     
     func isGameOver() -> Bool{
-        if load < 100{
-            return false
+        if load == 100{
+            return true
         }
-        return true
+        return false
     }
-    
-
     
 }

@@ -182,7 +182,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         virus.physicsBody.velocity = ccp(x, y)
     }
     
-    //
+    // new comment
     func triggerGameOver(){
         Singleton.sharedInstance.score = currentScore
         

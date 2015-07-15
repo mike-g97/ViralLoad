@@ -10,4 +10,8 @@
 class Singleton: NSObject {
    static let sharedInstance = Singleton()
     var score :Int!
+    
+    private override init(){}
 }
+
+

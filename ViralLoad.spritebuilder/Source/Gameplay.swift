@@ -89,7 +89,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         }
     }
     
-    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, virus: Virus!, computer: CCNode!) -> Bool {
+    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, virus: Virus!, computer: CCNode!) -> ObjCBool {
         if isGameOver() {
             triggerGameOver()
         }else if !isGameOver(){
@@ -97,7 +97,11 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
             virus.removeFromParent()
             load = load + 10
         }
-        return true
+        
+        let bool1 : Bool = true
+        let myBool = ObjCBool(bool1)
+        
+        return myBool
     }
     
 //  Spawn virus at a time on either four sides of the screen randomly

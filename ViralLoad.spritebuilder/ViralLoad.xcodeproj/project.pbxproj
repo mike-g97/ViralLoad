@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		270C15651B5698FA009D86A1 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270C15641B5698FA009D86A1 /* Singleton.swift */; };
-		275257231B4F1FEB00DB8160 /* Gameplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275257221B4F1FEB00DB8160 /* Gameplay.swift */; };
+		276B8C481B56E605001A07F3 /* Gameplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276B8C471B56E605001A07F3 /* Gameplay.swift */; };
 		2784A6431B55992C004FC297 /* GameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2784A6421B55992C004FC297 /* GameOver.swift */; };
 		27FB740D1B50011C00E2D098 /* Virus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FB740C1B50011C00E2D098 /* Virus.swift */; };
 		5B121030197484FA004C1E1D /* UntitledActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B12102F197484FA004C1E1D /* UntitledActivity.m */; };
@@ -153,7 +153,7 @@
 
 /* Begin PBXFileReference section */
 		270C15641B5698FA009D86A1 /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Singleton.swift; path = Source/Singleton.swift; sourceTree = "<group>"; };
-		275257221B4F1FEB00DB8160 /* Gameplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gameplay.swift; path = Source/Gameplay.swift; sourceTree = "<group>"; };
+		276B8C471B56E605001A07F3 /* Gameplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gameplay.swift; sourceTree = "<group>"; };
 		2784A6421B55992C004FC297 /* GameOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameOver.swift; path = Source/GameOver.swift; sourceTree = "<group>"; };
 		27FB740C1B50011C00E2D098 /* Virus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Virus.swift; path = Source/Virus.swift; sourceTree = "<group>"; };
 		5B12100919748273004C1E1D /* libEGL.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.so; path = /usr/lib/armv7a/libEGL.so; sourceTree = SDKROOT; };
@@ -444,7 +444,7 @@
 			children = (
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				7A046D7519E84C36004C4763 /* MainScene.swift */,
-				275257221B4F1FEB00DB8160 /* Gameplay.swift */,
+				276B8C471B56E605001A07F3 /* Gameplay.swift */,
 				270C15641B5698FA009D86A1 /* Singleton.swift */,
 				2784A6421B55992C004FC297 /* GameOver.swift */,
 				27FB740C1B50011C00E2D098 /* Virus.swift */,
@@ -825,8 +825,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B73789871807631A0076A88C /* main.m in Sources */,
+				276B8C481B56E605001A07F3 /* Gameplay.swift in Sources */,
 				270C15651B5698FA009D86A1 /* Singleton.swift in Sources */,
-				275257231B4F1FEB00DB8160 /* Gameplay.swift in Sources */,
 				7A046D7919E84ED5004C4763 /* MainScene.swift in Sources */,
 				2784A6431B55992C004FC297 /* GameOver.swift in Sources */,
 				27FB740D1B50011C00E2D098 /* Virus.swift in Sources */,

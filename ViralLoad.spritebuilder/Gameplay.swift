@@ -48,9 +48,9 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
             spawnVirus()
         }
         
-//        for virus in viruses {
-//            virus.changeVirusMode()
-//        }
+        //        for virus in viruses {
+        //            virus.changeVirusMode()
+        //        }
         if canSpeedUpViruses(){
             self.schedule("speedUpViruses", interval: 20)
         }else{
@@ -61,17 +61,15 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         
     }
     
-    //awesome comment
-    
     
     override func update(delta: CCTime) {
         var randomSpawner = arc4random_uniform(101)
         
         if randomSpawner <= 5 {
             spawnVirus()
-//            for virus in viruses {
-//                virus.changeVirusMode()
-//            }
+            //            for virus in viruses {
+            //                virus.changeVirusMode()
+            //            }
             
         }
     }
@@ -80,22 +78,22 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         for virus in viruses {
             
             var virusWorldSpace = convertToWorldSpace(virus.position)
-
+            
             if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 50
                 && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 50
-               /* && virus.mode == .Vulnerable*/{
-
-                viruses.removeAtIndex(find(viruses, virus)!)
-
-                virus.removeFromParent()
-                currentScore++
-                
+                /* && virus.mode == .Vulnerable*/{
+                    
+                    viruses.removeAtIndex(find(viruses, virus)!)
+                    
+                    virus.removeFromParent()
+                    currentScore++
+                    
             }
             
         }
     }
     
-//  Detects collision between the collision types virus & computer
+    //  Detects collision between the collision types virus & computer
     func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, virus: Virus!, computer: CCNode!) -> ObjCBool {
         if isGameOver() {
             triggerGameOver()
@@ -112,7 +110,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         return myBool
     }
     
-//  Spawn virus at a time on either four sides of the screen randomly
+    //  Spawn virus at a time on either four sides of the screen randomly
     func spawnVirus(){
         let virusType = Int(arc4random_uniform(2))
         let screenSide = Int(arc4random_uniform(4))
@@ -120,11 +118,11 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         var virus :Virus!
         var x :CGFloat!
         var y :CGFloat!
-//        println("screen side: \(screenSide)")
-//        println("percent: \(percent) and percent CGFloat \(CGFloat(percent))")
-//        println("")
+        //        println("screen side: \(screenSide)")
+        //        println("percent: \(percent) and percent CGFloat \(CGFloat(percent))")
+        //        println("")
         
-//      Generate random type
+        //      Generate random type
         if virusType == 0{
             virus = CCBReader.load("Virus1") as! Virus
             virus.scale = 0.018
@@ -136,7 +134,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         }
         
         
-//      Generate position on either four sides of the screen
+        //      Generate position on either four sides of the screen
         if screenSide == 0{
             //Top
             x = UIScreen.mainScreen().bounds.width * CGFloat(percent)
@@ -162,13 +160,13 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         virusMovementDirection(virus)
         viruses.append(virus)
     }
-
-//  Speeds up velocity of viruses by 1
+    
+    //  Speeds up velocity of viruses by 1
     func speedUpViruses(){
         virusSpeed--
     }
-
-//  Checks to see if the viruses speed can be adjusted any further
+    
+    //  Checks to see if the viruses speed can be adjusted any further
     func canSpeedUpViruses() ->Bool{
         if virusSpeed == 1{
             return false
@@ -176,15 +174,15 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         return true
     }
     
-//  Sets velocity according to it's spawn position on the screen
+    //  Sets velocity according to it's spawn position on the screen
     func virusMovementDirection(virus :Virus){
         var x = CGFloat(computer.position.x - virus.position.x) / CGFloat(virusSpeed)
         var y = CGFloat(computer.position.y - virus.position.y) / CGFloat(virusSpeed)
         
         virus.physicsBody.velocity = ccp(x, y)
     }
- 
-//
+    
+    //
     func triggerGameOver(){
         Singleton.sharedInstance.score = currentScore
         
@@ -195,7 +193,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         gameStates = .GameOver
         CCDirector.sharedDirector().replaceScene(gameOver)
         
-       
+        
         
     }
     

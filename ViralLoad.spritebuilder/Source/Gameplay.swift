@@ -21,7 +21,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
     weak var gamePhysicsNode :CCPhysicsNode!
     var viruses :[Virus] = []
     var gameStates :GameStates = .Title
-    var virusSpeed :Int = 5
+    var virusSpeed :Int = 20
     
     var load :Int = 0{
         didSet{
@@ -48,10 +48,6 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         for i in 0..<10{
             spawnVirus()
         }
-   
-          for virus in viruses {
-              virus.changeVirusMode()
-           }
         
         if canSpeedUpViruses(){
             self.schedule("speedUpViruses", interval: 20)
@@ -65,10 +61,6 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         
         if randomSpawner <= 5 {
             spawnVirus()
-
-              for virus in viruses {
-                   virus.changeVirusMode()
-               }
         }
     }
     
@@ -78,7 +70,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
  
             if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 50
                 && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 50
-                /* && virus.mode == .Vulnerable*/{
+                && virus.mode == .Vulnerable{
                     
                     viruses.removeAtIndex(find(viruses, virus)!)
                     virus.removeFromParent()
@@ -115,10 +107,6 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         var virus :Virus!
         var x :CGFloat!
         var y :CGFloat!
-        
-        // println("screen side: \(screenSide)")
-        // println("percent: \(percent) and percent CGFloat \(CGFloat(percent))")
-        // println("")
      
         // Generates random type
         if virusType == 0{

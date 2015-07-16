@@ -15,9 +15,7 @@ class GameOver: CCNode {
     var score :Int!
     
     func  didLoadFromCCB(){
-//        self.positionType = CCPositionTypeNormalized
         self.position = ccp(CCDirector.sharedDirector().viewSize().width/2, CCDirector.sharedDirector().viewSize().height/4)
-        println("score: \(Singleton.sharedInstance.score)")
         
         score = Singleton.sharedInstance.score
         gameOverScore.string = "\(score)"

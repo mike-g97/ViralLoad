@@ -15,18 +15,16 @@ class Virus: CCSprite {
     }
 
     var mode :virusMode = .Invulnerable
-    
-    //  Changes virus mode randomly by switching between timelines
-    func changeVirusMode(){
-        let num = arc4random_uniform(101)
         
-        if num <= 10{
-            self.animationManager.runAnimationsForSequenceNamed("Vulnerable Mode")
+    
+//  CallBack between invulnerable to vulnerable
+    func invulnerableCallBack(){
+        if mode == .Invulnerable{
             mode = .Vulnerable
-        }else{
-            self.animationManager.runAnimationsForSequenceNamed("Default Timeline")
+        } else{
             mode = .Invulnerable
         }
     }
     
+//  CallBack between vulnerable to invulnerable
 }

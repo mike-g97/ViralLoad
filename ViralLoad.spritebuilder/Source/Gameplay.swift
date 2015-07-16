@@ -58,9 +58,12 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
     
     override func update(delta: CCTime) {
         var randomSpawner = arc4random_uniform(101)
+        var numOfVirusesSpawned = viruses.count
+        var limit = 10
         
-        if randomSpawner <= 5 {
+        if randomSpawner <= 5 && numOfVirusesSpawned < limit{
             spawnVirus()
+            limit++
         }
     }
     
@@ -75,6 +78,10 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
                     viruses.removeAtIndex(find(viruses, virus)!)
                     virus.removeFromParent()
                     currentScore++
+            } else if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 50
+                && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 50
+                && virus.mode == .Invulnerable{
+                    load = load + 10
             }
         }
     }

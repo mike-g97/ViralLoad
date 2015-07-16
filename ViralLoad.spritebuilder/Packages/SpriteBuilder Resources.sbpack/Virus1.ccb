@@ -16,7 +16,7 @@
 	<key>currentResolution</key>
 	<integer>0</integer>
 	<key>currentSequenceId</key>
-	<integer>1</integer>
+	<integer>0</integer>
 	<key>docDimensionsType</key>
 	<integer>1</integer>
 	<key>fileType</key>
@@ -218,6 +218,60 @@
 								<string>Use regular file</string>
 							</array>
 						</dict>
+						<dict>
+							<key>easing</key>
+							<dict>
+								<key>type</key>
+								<integer>0</integer>
+							</dict>
+							<key>name</key>
+							<string>spriteFrame</string>
+							<key>time</key>
+							<real>0.5</real>
+							<key>type</key>
+							<integer>7</integer>
+							<key>value</key>
+							<array>
+								<string>Game Art/Blue-Black.png</string>
+								<string>Use regular file</string>
+							</array>
+						</dict>
+						<dict>
+							<key>easing</key>
+							<dict>
+								<key>type</key>
+								<integer>0</integer>
+							</dict>
+							<key>name</key>
+							<string>spriteFrame</string>
+							<key>time</key>
+							<real>0.66666668653488159</real>
+							<key>type</key>
+							<integer>7</integer>
+							<key>value</key>
+							<array>
+								<string>Game Art/Green-Black.png</string>
+								<string>Use regular file</string>
+							</array>
+						</dict>
+						<dict>
+							<key>easing</key>
+							<dict>
+								<key>type</key>
+								<integer>0</integer>
+							</dict>
+							<key>name</key>
+							<string>spriteFrame</string>
+							<key>time</key>
+							<real>0.83333331346511841</real>
+							<key>type</key>
+							<integer>7</integer>
+							<key>value</key>
+							<array>
+								<string>Game Art/Blue-Black.png</string>
+								<string>Use regular file</string>
+							</array>
+						</dict>
 					</array>
 					<key>name</key>
 					<string>spriteFrame</string>
@@ -364,7 +418,7 @@
 				<key>value</key>
 				<array>
 					<string></string>
-					<string>Game Art/Green-Black.png</string>
+					<string>Game Art/Blue-Black.png</string>
 				</array>
 			</dict>
 			<dict>
@@ -476,7 +530,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>1</real>
+			<real>0.0</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
@@ -507,7 +561,7 @@
 							<integer>0</integer>
 						</dict>
 						<key>time</key>
-						<real>0.5</real>
+						<real>1</real>
 						<key>type</key>
 						<integer>12</integer>
 						<key>value</key>
@@ -523,13 +577,13 @@
 			<key>chainedSequenceId</key>
 			<integer>0</integer>
 			<key>length</key>
-			<real>0.5</real>
+			<real>1</real>
 			<key>name</key>
 			<string>Vulnerable Mode</string>
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>0.5</real>
+			<real>1</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

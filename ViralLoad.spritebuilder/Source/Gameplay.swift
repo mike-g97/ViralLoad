@@ -65,27 +65,29 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
             spawnVirus()
             limit++
         }
+        
+        if load >= 100{
+            triggerGameOver()
+        }
     }
     
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         for virus in viruses {
             var virusWorldSpace = convertToWorldSpace(virus.position)
  
-            if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 50
-                && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 50
+            if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 10
+                && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 10
                 && virus.mode == .Vulnerable{
                     
                     viruses.removeAtIndex(find(viruses, virus)!)
                     virus.removeFromParent()
                     currentScore++
-            } else if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 50
-                && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 50
+                    
+            } else if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 10
+                && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 10
                 && virus.mode == .Invulnerable{
-                    if load >= 100{
-                        triggerGameOver()
-                    }else {
-                        load = load + 10
-                    }
+        
+                        load = load + 6
             }
         }
     }

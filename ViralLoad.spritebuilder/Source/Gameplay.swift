@@ -81,7 +81,11 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
             } else if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 50
                 && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 50
                 && virus.mode == .Invulnerable{
-                    load = load + 10
+                    if load >= 100{
+                        triggerGameOver()
+                    }else {
+                        load = load + 10
+                    }
             }
         }
     }
@@ -190,7 +194,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
     
     //  Checks to see if game is over
     func isGameOver() -> Bool{
-        if load == 100{
+        if load >= 100{
             return true
         }
         return false

@@ -330,7 +330,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>136.86065673828125</real>
+							<real>74.86065673828125</real>
 							<real>30</real>
 							<integer>2</integer>
 							<integer>0</integer>
@@ -368,7 +368,7 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>Loading</string>
+							<string>Infected</string>
 							<false/>
 						</array>
 					</dict>
@@ -550,7 +550,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>521.71221923828125</real>
+							<real>391.71221923828125</real>
 							<real>290</real>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -564,7 +564,7 @@
 						<string>Point</string>
 						<key>value</key>
 						<array>
-							<real>0.5</real>
+							<real>0.54158526659011841</real>
 							<real>0.5</real>
 						</array>
 					</dict>
@@ -737,6 +737,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -770,7 +772,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>554.71221923828125</real>
+							<real>350.71221923828125</real>
 							<real>290</real>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -1397,8 +1399,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

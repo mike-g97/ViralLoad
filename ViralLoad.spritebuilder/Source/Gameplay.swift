@@ -75,16 +75,16 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         for virus in viruses {
             var virusWorldSpace = convertToWorldSpace(virus.position)
  
-            if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 10
-                && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 10
+            if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 20
+                && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 20
                 && virus.mode == .Vulnerable{
                     
                     viruses.removeAtIndex(find(viruses, virus)!)
                     virus.removeFromParent()
                     currentScore++
                     
-            } else if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 10
-                && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 10
+            } else if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 20
+                && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 20
                 && virus.mode == .Invulnerable{
         
                         load = load + 6

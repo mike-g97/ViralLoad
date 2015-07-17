@@ -22,7 +22,6 @@ class ViewHighScore: CCNode {
         }else{
             defaults.setInteger(Singleton.sharedInstance.classicHighScore, forKey: "classicHighScore")
         }
-       
         classicHighscore = defaults.integerForKey("classicHighScore")
         classicHighScoreLabel.string = "\(classicHighscore)"
         

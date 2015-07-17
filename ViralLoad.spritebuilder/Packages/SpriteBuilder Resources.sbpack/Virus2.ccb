@@ -565,7 +565,7 @@
 						<integer>12</integer>
 						<key>value</key>
 						<array>
-							<string>invulnerableCallBack</string>
+							<string>invulnerable</string>
 							<integer>1</integer>
 						</array>
 					</dict>

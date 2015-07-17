@@ -37,6 +37,7 @@ class Insanity: CCNode, CCPhysicsCollisionDelegate {
     
     func didLoadFromCCB(){
         userInteractionEnabled = true
+        multipleTouchEnabled = true
         gamePhysicsNode.collisionDelegate = self
         
         start()

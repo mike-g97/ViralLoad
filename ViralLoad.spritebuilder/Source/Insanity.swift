@@ -1,5 +1,5 @@
 //
-//  Gameplay.swift
+//  Insanity.swift
 //  ViralLoad
 //  Made with <3 by Mike
 //  Created by Mikhael Gonzalez on 7/9/15.
@@ -7,7 +7,7 @@
 //
 import Foundation
 
-class Gameplay: CCNode, CCPhysicsCollisionDelegate {
+class Insanity: CCNode, CCPhysicsCollisionDelegate {
 
     enum GameStates {
         
@@ -184,14 +184,14 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
     
     //  Triggers once load reaches 100
     func triggerGameOver(){
-        Singleton.sharedInstance.score = currentScore
-        let gameOver = CCBReader.loadAsScene("GameOver")
+        Singleton.sharedInstance.insanityScore = currentScore
+        let insanityGameOver = CCBReader.loadAsScene("InsanityGameOver")
         
         self.unschedule("speedUpViruses")
         
         gameStates = .GameOver
         
-        CCDirector.sharedDirector().replaceScene(gameOver)
+        CCDirector.sharedDirector().replaceScene(insanityGameOver)
     }
     
     //  Checks to see if game is over

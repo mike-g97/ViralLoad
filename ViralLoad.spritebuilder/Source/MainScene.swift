@@ -3,7 +3,12 @@ import Foundation
 class MainScene: CCNode {
 
     func play(){
-        let gameplayScene = CCBReader.loadAsScene("Gameplay")
-        CCDirector.sharedDirector().replaceScene(gameplayScene)
+        let modesScene = CCBReader.loadAsScene("GameModes")
+        CCDirector.sharedDirector().replaceScene(modesScene)
+    }
+    
+    func loadHighScore(){
+        let highScoreScene = CCBReader.loadAsScene("ViewHighScore")
+        CCDirector.sharedDirector().replaceScene(highScoreScene)
     }
 }

@@ -18,7 +18,7 @@ class Virus: CCSprite {
         
     
 //  CallBack between invulnerable to vulnerable
-    func invulnerableCallBack(){
+    func invulnerable(){
         if mode == .Invulnerable{
             mode = .Vulnerable
         } else{

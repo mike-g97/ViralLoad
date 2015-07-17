@@ -620,7 +620,7 @@
 						<integer>12</integer>
 						<key>value</key>
 						<array>
-							<string>invulnerableCallBack</string>
+							<string>invulnerable</string>
 							<integer>1</integer>
 						</array>
 					</dict>
@@ -637,7 +637,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>1.3333333730697632</real>
+			<real>1.5</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

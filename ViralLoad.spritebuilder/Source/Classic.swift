@@ -37,8 +37,11 @@ class Classic: CCNode {
     }
     
     func didLoadFromCCB(){
+        //Enables multi touch and user touch
         userInteractionEnabled = true
         multipleTouchEnabled = true
+        
+        //Tells the game physics node to look for collision
         gamePhysicsNode.collisionDelegate = self
         
         start()

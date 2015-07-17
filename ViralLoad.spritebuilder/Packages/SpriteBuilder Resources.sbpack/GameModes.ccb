@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>107</integer>
+	<integer>6</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -35,15 +35,13 @@
 	<false/>
 	<key>nodeGraph</key>
 	<dict>
-		<key>UUID</key>
-		<integer>1</integer>
 		<key>baseClass</key>
 		<string>CCNode</string>
 		<key>children</key>
 		<array>
 			<dict>
 				<key>UUID</key>
-				<integer>102</integer>
+				<integer>1</integer>
 				<key>baseClass</key>
 				<string>CCNodeColor</string>
 				<key>children</key>
@@ -124,9 +122,9 @@
 						<string>Color3</string>
 						<key>value</key>
 						<array>
-							<real>0.90789240598678589</real>
-							<real>0.90195602178573608</real>
-							<real>0.8270723819732666</real>
+							<real>1</real>
+							<real>0.93548762798309326</real>
+							<real>0.81904995441436768</real>
 							<real>1</real>
 						</array>
 					</dict>
@@ -139,12 +137,10 @@
 						<real>1</real>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
-				<integer>104</integer>
+				<integer>3</integer>
 				<key>baseClass</key>
 				<string>CCLabelTTF</string>
 				<key>children</key>
@@ -152,7 +148,7 @@
 				<key>customClass</key>
 				<string></string>
 				<key>displayName</key>
-				<string>Title</string>
+				<string>Game Modes</string>
 				<key>memberVarAssignmentName</key>
 				<string></string>
 				<key>memberVarAssignmentType</key>
@@ -175,7 +171,7 @@
 						<key>value</key>
 						<array>
 							<real>0.5</real>
-							<real>0.703125</real>
+							<real>0.80000001192092896</real>
 							<integer>0</integer>
 							<integer>2</integer>
 							<integer>2</integer>
@@ -212,7 +208,7 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>Viral Load</string>
+							<string>Game Modes</string>
 							<false/>
 						</array>
 					</dict>
@@ -231,7 +227,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>35</real>
+							<real>30</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -364,7 +360,7 @@
 			</dict>
 			<dict>
 				<key>UUID</key>
-				<integer>105</integer>
+				<integer>4</integer>
 				<key>baseClass</key>
 				<string>CCButton</string>
 				<key>children</key>
@@ -372,7 +368,7 @@
 				<key>customClass</key>
 				<string></string>
 				<key>displayName</key>
-				<string>Play</string>
+				<string>Classic</string>
 				<key>memberVarAssignmentName</key>
 				<string></string>
 				<key>memberVarAssignmentType</key>
@@ -394,8 +390,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>212</real>
-							<real>86</real>
+							<real>184</real>
+							<real>139</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -432,7 +428,7 @@
 						<string>Block</string>
 						<key>value</key>
 						<array>
-							<string>play</string>
+							<string>playClassic</string>
 							<integer>1</integer>
 						</array>
 					</dict>
@@ -477,7 +473,7 @@
 						<string>String</string>
 						<key>value</key>
 						<array>
-							<string>Play</string>
+							<string>Classic</string>
 							<false/>
 						</array>
 					</dict>
@@ -569,7 +565,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>17</real>
+							<real>24</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -690,7 +686,7 @@
 			</dict>
 			<dict>
 				<key>UUID</key>
-				<integer>106</integer>
+				<integer>5</integer>
 				<key>baseClass</key>
 				<string>CCButton</string>
 				<key>children</key>
@@ -698,7 +694,7 @@
 				<key>customClass</key>
 				<string></string>
 				<key>displayName</key>
-				<string>High Score</string>
+				<string>Insanity</string>
 				<key>memberVarAssignmentName</key>
 				<string></string>
 				<key>memberVarAssignmentType</key>
@@ -720,8 +716,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>340</real>
-							<real>86</real>
+							<real>382.95703125</real>
+							<real>139</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -734,8 +730,8 @@
 						<string>Point</string>
 						<key>value</key>
 						<array>
-							<real>0.5</real>
-							<real>0.5</real>
+							<real>0.48137554526329041</real>
+							<real>0.44785156846046448</real>
 						</array>
 					</dict>
 					<dict>
@@ -758,7 +754,7 @@
 						<string>Block</string>
 						<key>value</key>
 						<array>
-							<string>loadHighScore</string>
+							<string>playInsanity</string>
 							<integer>1</integer>
 						</array>
 					</dict>
@@ -803,7 +799,7 @@
 						<string>String</string>
 						<key>value</key>
 						<array>
-							<string>High Score</string>
+							<string>Insanity</string>
 							<false/>
 						</array>
 					</dict>
@@ -895,7 +891,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>17</real>
+							<real>24</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -1016,7 +1012,7 @@
 			</dict>
 		</array>
 		<key>customClass</key>
-		<string>MainScene</string>
+		<string>GameModes</string>
 		<key>displayName</key>
 		<string>CCNode</string>
 		<key>memberVarAssignmentName</key>
@@ -1085,6 +1081,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
@@ -1143,7 +1141,7 @@
 				<key>keyframes</key>
 				<array/>
 				<key>type</key>
-				<integer>11</integer>
+				<integer>12</integer>
 			</dict>
 			<key>chainedSequenceId</key>
 			<integer>-1</integer>
@@ -1168,7 +1166,7 @@
 				<key>keyframes</key>
 				<array/>
 				<key>type</key>
-				<integer>10</integer>
+				<integer>11</integer>
 			</dict>
 		</dict>
 	</array>

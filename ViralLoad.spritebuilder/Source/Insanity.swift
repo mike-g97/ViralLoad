@@ -1,20 +1,19 @@
 //
-//  Gameplay.swift
+//  Insanity.swift
 //  ViralLoad
-//
+//  Made with <3 by Mike
 //  Created by Mikhael Gonzalez on 7/9/15.
 //  Copyright (c) 2015 Apportable. All rights reserved.
 //
+import Foundation
 
-import UIKit
+class Insanity: CCNode, CCPhysicsCollisionDelegate {
 
-class Gameplay: CCNode, CCPhysicsCollisionDelegate {
-    
     enum GameStates {
+        
         case Title, Playing, GameOver
+        
     }
-    
-    let defaults = NSUserDefaults.standardUserDefaults()
     
     weak var loadPercentage :CCLabelTTF!
     weak var score :CCLabelTTF!
@@ -22,7 +21,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
     weak var gamePhysicsNode :CCPhysicsNode!
     var viruses :[Virus] = []
     var gameStates :GameStates = .Title
-    var virusSpeed :Int = 10
+    var virusSpeed :Int = 20
     
     var load :Int = 0{
         didSet{
@@ -41,59 +40,79 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         gamePhysicsNode.collisionDelegate = self
         
         start()
-        
     }
     
     func start(){
         gameStates = .Playing
-        
+
         for i in 0..<10{
             spawnVirus()
         }
         
-        self.schedule("speedUpViruses", interval: 10)
+        if canSpeedUpViruses(){
+            self.schedule("speedUpViruses", interval: 20)
+        }else{
+            self.unschedule("speedUpViruses")
+        }
     }
-    
     
     override func update(delta: CCTime) {
         var randomSpawner = arc4random_uniform(101)
+        var numOfVirusesSpawned = viruses.count
+        var limit = 10
         
-        if randomSpawner <= 5 {
+        if randomSpawner <= 5 && numOfVirusesSpawned < limit{
             spawnVirus()
+            limit++
+        }
+        
+        if load >= 100{
+            triggerGameOver()
         }
     }
     
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         for virus in viruses {
-            
             var virusWorldSpace = convertToWorldSpace(virus.position)
-
-
-            if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 50
-            && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 50 {
-
-                viruses.removeAtIndex(find(viruses, virus)!)
-//               virus.color = CCColor.blackColor()
-                virus.removeFromParent()
-                currentScore++
-                
+ 
+            if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 20
+                && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 20
+                && virus.mode == .Vulnerable{
+                    
+                    viruses.removeAtIndex(find(viruses, virus)!)
+                    virus.removeFromParent()
+                    currentScore++
+                    
+            } else if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 20
+                && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 20
+                && virus.mode == .Invulnerable{
+        
+                        load = load + 6
             }
-            
         }
     }
     
-    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, virus: Virus!, computer: CCNode!) -> Bool {
+    //  Detects collision between the collision types virus & computer
+    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, virus: Virus!, computer: CCNode!) -> ObjCBool {
         if isGameOver() {
             triggerGameOver()
         }else if !isGameOver(){
             viruses.removeAtIndex(find(viruses, virus)!)
             virus.removeFromParent()
-            load = load + 10
+            load = load + 5
         }
-        return true
+
+        //  I did this because it was the hackiest way to get the program to load to my device
+        let bool1 : Bool = true
+        let myBool = ObjCBool(bool1)
+
+        return myBool
     }
     
-//  Spawn virus at a time on either four sides of the screen randomly
+    
+    
+    //  Spawn virus at a time on either four sides of the screen randomly
+    
     func spawnVirus(){
         let virusType = Int(arc4random_uniform(2))
         let screenSide = Int(arc4random_uniform(4))
@@ -101,11 +120,8 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         var virus :Virus!
         var x :CGFloat!
         var y :CGFloat!
-//        println("screen side: \(screenSide)")
-//        println("percent: \(percent) and percent CGFloat \(CGFloat(percent))")
-//        println("")
-        
-//      Generate random type
+     
+        // Generates random type
         if virusType == 0{
             virus = CCBReader.load("Virus1") as! Virus
             virus.scale = 0.018
@@ -116,8 +132,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
             gamePhysicsNode.addChild(virus)
         }
         
-        
-//      Generate position on either four sides of the screen
+        // Generates position on either four sides of the screen
         if screenSide == 0{
             //Top
             x = UIScreen.mainScreen().bounds.width * CGFloat(percent)
@@ -144,33 +159,47 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         viruses.append(virus)
     }
 
-//  Speeds up velocity of viruses by 1
+    //  Speeds up velocity of viruses by 1
     func speedUpViruses(){
         virusSpeed--
     }
-    
-//  Sets velocity according to it's spawn position on the screen
-    func virusMovementDirection(virus :Virus){
 
-        var x = CGFloat(computer.position.x - virus.position.x) / CGFloat(virusSpeed)
-        var y = CGFloat(computer.position.y - virus.position.y) / CGFloat(virusSpeed)
-        
-        virus.physicsBody.velocity = ccp(x, y)
-    }
-    
-    func triggerGameOver(){
-        gameStates = .GameOver
-        self.unschedule("speedUpViruses")
-        
-    }
-    
-    func isGameOver() -> Bool{
-        if load < 100{
+    //  Checks to see if the viruses speed can be adjusted any further
+    func canSpeedUpViruses() ->Bool{
+        if virusSpeed == 1{
             return false
         }
         return true
     }
     
-
     
+    
+    //  Sets velocity according to it's spawn position on the screen
+    func virusMovementDirection(virus :Virus){
+        var x = CGFloat(computer.position.x - virus.position.x) / CGFloat(virusSpeed)
+        var y = CGFloat(computer.position.y - virus.position.y) / CGFloat(virusSpeed)
+ 
+        virus.physicsBody.velocity = ccp(x, y)
+    }
+    
+    //  Triggers once load reaches 100
+    func triggerGameOver(){
+        Singleton.sharedInstance.insanityScore = currentScore
+        let insanityGameOver = CCBReader.loadAsScene("InsanityGameOver")
+        
+        self.unschedule("speedUpViruses")
+        
+        gameStates = .GameOver
+        
+        CCDirector.sharedDirector().replaceScene(insanityGameOver)
+    }
+    
+    //  Checks to see if game is over
+    func isGameOver() -> Bool{
+        if load >= 100{
+            return true
+        }
+        return false
+    }
+ 
 }

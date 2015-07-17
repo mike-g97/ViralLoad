@@ -6,15 +6,25 @@
 //  Copyright (c) 2015 Apportable. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class Virus: CCSprite {
+    
+    enum virusMode {
+        case Invulnerable, Vulnerable
+    }
 
-    func didLoadFromCCB () {
+    var mode :virusMode = .Invulnerable
         
-
-        
+    
+//  CallBack between invulnerable to vulnerable
+    func invulnerable(){
+        if mode == .Invulnerable{
+            mode = .Vulnerable
+        } else{
+            mode = .Invulnerable
+        }
     }
     
-    
+//  CallBack between vulnerable to invulnerable
 }

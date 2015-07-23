@@ -30,8 +30,6 @@ class InsanityGameOver: CCNode {
         }
         
         Singleton.sharedInstance.insanityHighScore = defaults.integerForKey("highScore")
-//        println("\(Singleton.sharedInstance.insanityHighScore)")
-        
     }
     
     func restart(){

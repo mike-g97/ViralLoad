@@ -13,6 +13,7 @@ class Singleton: NSObject {
     var classicScore :Int!
     var insanityHighScore :Int!
     var classicHighScore :Int!
+    var mode :String!
     
     private override init(){}
 }

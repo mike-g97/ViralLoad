@@ -30,8 +30,6 @@ class ClassicGameOver: CCNode {
         }
         
         Singleton.sharedInstance.classicHighScore = defaults.integerForKey("highScore")
-//        println("\(Singleton.sharedInstance.classicHighScore)")
-        
     }
     
     func restart(){

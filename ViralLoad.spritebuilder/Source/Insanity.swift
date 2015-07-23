@@ -36,9 +36,15 @@ class Insanity: CCNode, CCPhysicsCollisionDelegate {
     }
     
     func didLoadFromCCB(){
+        //Enables multi touch and user touch
         userInteractionEnabled = true
         multipleTouchEnabled = true
+        
+        //Tells the game physics node to look for collisions
         gamePhysicsNode.collisionDelegate = self
+        
+        
+        CCDirector.sharedDirector().resume()
         
         start()
     }
@@ -55,6 +61,14 @@ class Insanity: CCNode, CCPhysicsCollisionDelegate {
         }else{
             self.unschedule("speedUpViruses")
         }
+    }
+    
+    func pause(){
+            CCDirector.sharedDirector().pause()
+            Singleton.sharedInstance.mode = "Insanity"
+            
+            let pauseScene = CCBReader.loadAsScene("Pause")
+            CCDirector.sharedDirector().pushScene(pauseScene)
     }
     
     override func update(delta: CCTime) {

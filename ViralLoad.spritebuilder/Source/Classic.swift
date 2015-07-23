@@ -90,8 +90,8 @@ class Classic: CCNode {
         for virus in viruses {
             var virusWorldSpace = convertToWorldSpace(virus.position)
             
-            if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 20
-                && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 20
+            if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 30
+                && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 30
                 {
                     
                     viruses.removeAtIndex(find(viruses, virus)!)

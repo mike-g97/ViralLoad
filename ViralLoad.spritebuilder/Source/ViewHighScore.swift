@@ -16,25 +16,22 @@ class ViewHighScore: CCNode {
     var insanityHighscore :Int!
     
     func didLoadFromCCB(){
-        // Checks for classic mode highscore sees if its nil and sets it to zero and saves it in defaults
+        
         if Singleton.sharedInstance.classicHighScore == nil{
-            defaults.setInteger(0, forKey: "classicHighScore")
+            classicHighscore = 0
         }else{
-            defaults.setInteger(Singleton.sharedInstance.classicHighScore, forKey: "classicHighScore")
+            classicHighscore = Singleton.sharedInstance.classicHighScore
         }
-        classicHighscore = defaults.integerForKey("classicHighScore")
+        
         classicHighScoreLabel.string = "\(classicHighscore)"
         
-        // Checks for insanity mode highscore sees if its nil and sets it to zero and saves it in defaults
         if Singleton.sharedInstance.insanityHighScore == nil{
-            defaults.setInteger(0, forKey: "insanityHighScore")
+            insanityHighscore = 0
         }else{
-            defaults.setInteger(Singleton.sharedInstance.insanityHighScore, forKey: "insanityHighScore")
+            insanityHighscore = Singleton.sharedInstance.insanityHighScore
         }
         
-        insanityHighscore = defaults.integerForKey("insanityHighScore")
         insanityHighScoreLabel.string = "\(insanityHighscore)"
-
     }
     
     func loadHome(){

@@ -21,15 +21,16 @@ class ClassicGameOver: CCNode {
         gameOverScore.string = "\(score)"
         
         
-        var highScore = defaults.integerForKey("highScore")
+        var highScore = defaults.integerForKey("classicHighScore")
         gameOverHighScore.string = "\(highScore)"
         
         if highScore < score{
-            defaults.setInteger(score, forKey: "highScore")
+            defaults.setInteger(score, forKey: "classicHighScore")
+            defaults.synchronize()
             gameOverHighScore.string = "\(score)"
         }
         
-        Singleton.sharedInstance.classicHighScore = defaults.integerForKey("highScore")
+        Singleton.sharedInstance.classicHighScore = defaults.integerForKey("classicHighScore")
     }
     
     func restart(){

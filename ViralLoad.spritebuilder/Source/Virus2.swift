@@ -9,5 +9,6 @@
 import UIKit
 
 class Virus2: CCSprite {
-   
+    var tapCount :Int = 0
+    
 }

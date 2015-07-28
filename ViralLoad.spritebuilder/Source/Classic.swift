@@ -21,8 +21,9 @@ class Classic: CCNode {
     weak var computer :CCSprite!
     weak var gamePhysicsNode :CCPhysicsNode!
     var viruses :[Virus2] = []
+    var bossViruses :[Virus2] = []
     var gameStates :GameStates = .Title
-    var virusSpeed :Int = 5
+    var virusSpeed :Int = 10
     
     var load :Int = 0{
         didSet{
@@ -52,12 +53,12 @@ class Classic: CCNode {
     func start(){
         gameStates = .Playing
         
-        for i in 0..<10{
-            spawnVirus()
-        }
+        var randomBossSpawner = CCTime(arc4random_uniform(15) + 1)
+        self.schedule("spawnBossVirus", interval: randomBossSpawner)
         
-        if canSpeedUpViruses(){
-            self.schedule("speedUpViruses", interval: 20)
+        if canSpeedUpViruses() || virusSpeed >= 3{
+            self.schedule("speedUpViruses", interval: 10)
+            self.schedule("slowDownViruses", interval: 30)
         }else{
             self.unschedule("speedUpViruses")
         }
@@ -99,6 +100,22 @@ class Classic: CCNode {
                     currentScore++
             }
         }
+        
+        for virus in bossViruses {
+            var virusWorldSpace = convertToWorldSpace(virus.position)
+            
+            if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 30
+                && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 30
+            {
+                virus.tapCount += 1
+                
+                if (virus.tapCount == 2){
+                    bossViruses.removeAtIndex(find(bossViruses, virus)!)
+                    virus.removeFromParent()
+                    currentScore++
+                }
+            }
+        }
     }
     
     //  Detects collision between the collision types virus & computer
@@ -106,9 +123,14 @@ class Classic: CCNode {
         if isGameOver() {
             triggerGameOver()
         }else if !isGameOver(){
-            viruses.removeAtIndex(find(viruses, virus)!)
+            if (virus.scaleX == 0.018){
+                viruses.removeAtIndex(find(viruses, virus)!)
+                load = load + 5
+            }else if (virus.scaleX == 0.030){
+                bossViruses.removeAtIndex(find(bossViruses, virus)!)
+                load = load + 10
+            }
             virus.removeFromParent()
-            load = load + 5
         }
         
         //  I did this because it was the hackiest way to get the program to load to my device
@@ -167,14 +189,66 @@ class Classic: CCNode {
         viruses.append(virus)
     }
     
+    //  Spawn a boss virus at a time on either four sides of the screen randomly
+    func spawnBossVirus(){
+        let virusType = Int(arc4random_uniform(2))
+        let screenSide = Int(arc4random_uniform(4))
+        let percent = Float(arc4random_uniform(101)) / 100
+        var virus :Virus2!
+        var x :CGFloat!
+        var y :CGFloat!
+        
+        // Generates random type
+        if virusType == 0{
+            virus = CCBReader.load("Virus3") as! Virus2
+            virus.scale = 0.030
+            gamePhysicsNode.addChild(virus)
+        } else if virusType == 1{
+            virus = CCBReader.load("Virus4") as! Virus2
+            virus.scale = 0.030
+            gamePhysicsNode.addChild(virus)
+        }
+        
+        // Generates position on either four sides of the screen
+        if screenSide == 0{
+            //Top
+            x = UIScreen.mainScreen().bounds.width * CGFloat(percent)
+            y = UIScreen.mainScreen().bounds.height
+            virus.position = CGPoint(x: x, y: y)
+        }else if screenSide == 1{
+            //Bottom
+            x = UIScreen.mainScreen().bounds.width * CGFloat(percent)
+            y = 0.0
+            virus.position = CGPoint(x: x, y: y)
+        }else if screenSide == 2{
+            //Left
+            x = 0.0
+            y = UIScreen.mainScreen().bounds.height * CGFloat(percent)
+            virus.position = CGPoint(x: x, y: y)
+        }else if screenSide == 3{
+            //Right
+            x = UIScreen.mainScreen().bounds.width
+            y = UIScreen.mainScreen().bounds.height * CGFloat(percent)
+            virus.position = CGPoint(x: x, y: y)
+        }
+        
+        virusMovementDirection(virus)
+        bossViruses.append(virus)
+    }
+    
     //  Speeds up velocity of viruses by 1
     func speedUpViruses(){
         virusSpeed--
     }
     
+    //  Slows down viruses by 2
+    func slowDownViruses(){
+        virusSpeed += 2
+    }
+    
     //  Checks to see if the viruses speed can be adjusted any further
     func canSpeedUpViruses() ->Bool{
-        if virusSpeed == 1{
+        if virusSpeed <= 0{
             return false
         }
         return true
@@ -194,6 +268,7 @@ class Classic: CCNode {
         let classicGameOver = CCBReader.loadAsScene("ClassicGameOver")
         
         self.unschedule("speedUpViruses")
+        self.unschedule("slowDownViruses")
         
         gameStates = .GameOver
         

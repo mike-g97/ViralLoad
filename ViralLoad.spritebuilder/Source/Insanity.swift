@@ -51,10 +51,6 @@ class Insanity: CCNode, CCPhysicsCollisionDelegate {
     
     func start(){
         gameStates = .Playing
-
-        for i in 0..<10{
-            spawnVirus()
-        }
         
         if canSpeedUpViruses(){
             self.schedule("speedUpViruses", interval: 20)

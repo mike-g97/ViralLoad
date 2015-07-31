@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "927F6198196C771E000F43EF"
-               BuildableName = "ViralLoad Android.app"
-               BlueprintName = "Viral Load Android"
+               BlueprintIdentifier = "7A4035FE19DDEE84007B6E8F"
+               BuildableName = "Viral Load Mac.app"
+               BlueprintName = "Viral Load Mac"
                ReferencedContainer = "container:Viral Load.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "927F6198196C771E000F43EF"
-            BuildableName = "ViralLoad Android.app"
-            BlueprintName = "Viral Load Android"
+            BlueprintIdentifier = "7A4035FE19DDEE84007B6E8F"
+            BuildableName = "Viral Load Mac.app"
+            BlueprintName = "Viral Load Mac"
             ReferencedContainer = "container:Viral Load.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -52,9 +52,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "927F6198196C771E000F43EF"
-            BuildableName = "ViralLoad Android.app"
-            BlueprintName = "Viral Load Android"
+            BlueprintIdentifier = "7A4035FE19DDEE84007B6E8F"
+            BuildableName = "Viral Load Mac.app"
+            BlueprintName = "Viral Load Mac"
             ReferencedContainer = "container:Viral Load.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -71,9 +71,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "927F6198196C771E000F43EF"
-            BuildableName = "ViralLoad Android.app"
-            BlueprintName = "Viral Load Android"
+            BlueprintIdentifier = "7A4035FE19DDEE84007B6E8F"
+            BuildableName = "Viral Load Mac.app"
+            BlueprintName = "Viral Load Mac"
             ReferencedContainer = "container:Viral Load.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

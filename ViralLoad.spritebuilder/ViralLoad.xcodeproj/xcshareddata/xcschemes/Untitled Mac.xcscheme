@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7A4035FE19DDEE84007B6E8F"
-               BuildableName = "Viral Load Mac.app"
+               BuildableName = "ViralLoad Mac.app"
                BlueprintName = "ViralLoad Mac"
                ReferencedContainer = "container:ViralLoad.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7A4035FE19DDEE84007B6E8F"
-            BuildableName = "Viral Load Mac.app"
+            BuildableName = "ViralLoad Mac.app"
             BlueprintName = "ViralLoad Mac"
             ReferencedContainer = "container:ViralLoad.xcodeproj">
          </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7A4035FE19DDEE84007B6E8F"
-            BuildableName = "Viral Load Mac.app"
+            BuildableName = "ViralLoad Mac.app"
             BlueprintName = "ViralLoad Mac"
             ReferencedContainer = "container:ViralLoad.xcodeproj">
          </BuildableReference>
@@ -72,7 +72,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7A4035FE19DDEE84007B6E8F"
-            BuildableName = "Viral Load Mac.app"
+            BuildableName = "ViralLoad Mac.app"
             BlueprintName = "ViralLoad Mac"
             ReferencedContainer = "container:ViralLoad.xcodeproj">
          </BuildableReference>

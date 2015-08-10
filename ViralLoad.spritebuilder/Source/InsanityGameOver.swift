@@ -31,6 +31,7 @@ class InsanityGameOver: CCNode {
         }
         
         Singleton.sharedInstance.insanityHighScore = defaults.integerForKey("insanityHighScore")
+        Mixpanel.sharedInstance().registerSuperProperties(["Insanity High Score" : gameOverHighScore.string])
     }
     
     func restart(){

@@ -85,6 +85,7 @@
 		27B1AE4D1B7143020061A31F /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B1AE4C1B7143020061A31F /* libicucore.dylib */; };
 		27B1AE4F1B71430F0061A31F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B1AE4E1B71430F0061A31F /* CFNetwork.framework */; };
 		27B1AE511B71431B0061A31F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B1AE501B71431B0061A31F /* Security.framework */; };
+		27B1AE571B7160660061A31F /* explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 27B1AE561B7160660061A31F /* explosion.mp3 */; };
 		27F9EF4C1B58381E00A22E7F /* ViewHighScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9EF4B1B58381E00A22E7F /* ViewHighScore.swift */; };
 		27F9EF501B58485D00A22E7F /* Virus2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9EF4F1B58485D00A22E7F /* Virus2.swift */; };
 		27F9EF521B58489000A22E7F /* Classic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9EF511B58489000A22E7F /* Classic.swift */; };
@@ -368,6 +369,7 @@
 		27B1AE4E1B71430F0061A31F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		27B1AE501B71431B0061A31F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		27B1AE521B714D6C0061A31F /* Mixpanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Mixpanel.h; path = Pods/Mixpanel/Mixpanel/Mixpanel.h; sourceTree = "<group>"; };
+		27B1AE561B7160660061A31F /* explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion.mp3; sourceTree = "<group>"; };
 		27F9EF4B1B58381E00A22E7F /* ViewHighScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewHighScore.swift; path = Source/ViewHighScore.swift; sourceTree = "<group>"; };
 		27F9EF4F1B58485D00A22E7F /* Virus2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Virus2.swift; path = Source/Virus2.swift; sourceTree = "<group>"; };
 		27F9EF511B58489000A22E7F /* Classic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Classic.swift; path = Source/Classic.swift; sourceTree = "<group>"; };
@@ -637,6 +639,14 @@
 				27B1AE061B7140850061A31F /* UIView+MPHelpers.m */,
 			);
 			path = Mixpanel;
+			sourceTree = "<group>";
+		};
+		27B1AE531B71601A0061A31F /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				27B1AE561B7160660061A31F /* explosion.mp3 */,
+			);
+			name = Music;
 			sourceTree = "<group>";
 		};
 		5B12100D197483EE004C1E1D /* res */ = {
@@ -913,6 +923,7 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				27B1AE531B71601A0061A31F /* Music */,
 				7A40366119DDF8C2007B6E8F /* Platforms */,
 				5B12100D197483EE004C1E1D /* res */,
 				B73789911807667A0076A88C /* Icons */,
@@ -1142,6 +1153,7 @@
 				B7378975180762440076A88C /* Default-568h@2x.png in Resources */,
 				B71F5918188484E7003F4D28 /* iPhone@2x.png in Resources */,
 				B7378977180762440076A88C /* Default.png in Resources */,
+				27B1AE571B7160660061A31F /* explosion.mp3 in Resources */,
 				B71F5911188484E7003F4D28 /* iPad-old.png in Resources */,
 				27B1AE471B7140850061A31F /* test_variant.json in Resources */,
 				27B1AE331B7140850061A31F /* MPSurvey.storyboard in Resources */,

@@ -17,7 +17,9 @@ class Insanity: CCNode, CCPhysicsCollisionDelegate {
     
     weak var loadPercentage :CCLabelTTF!
     weak var score :CCLabelTTF!
+    weak var infoLabel :CCLabelTTF!
     weak var computer :CCSprite!
+    weak var infoButton :CCButton!
     weak var gamePhysicsNode :CCPhysicsNode!
     var viruses :[Virus] = []
     var gameStates :GameStates = .Title
@@ -47,6 +49,11 @@ class Insanity: CCNode, CCPhysicsCollisionDelegate {
         CCDirector.sharedDirector().resume()
         
         start()
+    }
+    
+    func info(){
+        self.infoLabel.removeFromParent()
+        self.infoButton.removeFromParent()
     }
     
     func start(){
@@ -93,6 +100,7 @@ class Insanity: CCNode, CCPhysicsCollisionDelegate {
                     viruses.removeAtIndex(find(viruses, virus)!)
                     virus.removeFromParent()
                     currentScore++
+                    OALSimpleAudio.sharedInstance().playEffect("explosion.mp3", loop: false)
                     
             } else if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 20
                 && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 20
@@ -144,12 +152,13 @@ class Insanity: CCNode, CCPhysicsCollisionDelegate {
         }
         
         // Generates position on either four sides of the screen
-        if screenSide == 0{
-            //Top
-            x = UIScreen.mainScreen().bounds.width * CGFloat(percent)
-            y = UIScreen.mainScreen().bounds.height
-            virus.position = CGPoint(x: x, y: y)
-        }else if screenSide == 1{
+//        if screenSide == 0{
+//            //Top
+//            x = UIScreen.mainScreen().bounds.width * CGFloat(percent)
+//            y = UIScreen.mainScreen().bounds.height
+//            virus.position = CGPoint(x: x, y: y)
+//        }else
+            if screenSide == 1{
             //Bottom
             x = UIScreen.mainScreen().bounds.width * CGFloat(percent)
             y = 0.0

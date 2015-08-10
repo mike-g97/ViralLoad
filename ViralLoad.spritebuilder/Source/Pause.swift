@@ -36,5 +36,10 @@ class Pause: CCNode {
         let homeScene = CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().replaceScene(homeScene)
     }
+    
+    func restart(){
+        let gameplayScene = CCBReader.loadAsScene("\(Singleton.sharedInstance.mode)")
+        CCDirector.sharedDirector().replaceScene(gameplayScene)
+    }
 }
 

@@ -31,6 +31,7 @@ class ClassicGameOver: CCNode {
         }
         
         Singleton.sharedInstance.classicHighScore = defaults.integerForKey("classicHighScore")
+        Mixpanel.sharedInstance().registerSuperProperties(["Classic High Score" : gameOverHighScore.string])
     }
     
     func restart(){

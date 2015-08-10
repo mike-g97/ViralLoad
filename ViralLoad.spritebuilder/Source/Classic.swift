@@ -98,6 +98,7 @@ class Classic: CCNode {
                     viruses.removeAtIndex(find(viruses, virus)!)
                     virus.removeFromParent()
                     currentScore++
+                    OALSimpleAudio.sharedInstance().playEffect("explosion.mp3", loop: false)
             }
         }
         
@@ -113,6 +114,7 @@ class Classic: CCNode {
                     bossViruses.removeAtIndex(find(bossViruses, virus)!)
                     virus.removeFromParent()
                     currentScore++
+                    OALSimpleAudio.sharedInstance().playEffect("explosion.mp3", loop: false)
                 }
             }
         }
@@ -163,12 +165,13 @@ class Classic: CCNode {
         }
         
         // Generates position on either four sides of the screen
-        if screenSide == 0{
-            //Top
-            x = UIScreen.mainScreen().bounds.width * CGFloat(percent)
-            y = UIScreen.mainScreen().bounds.height
-            virus.position = CGPoint(x: x, y: y)
-        }else if screenSide == 1{
+//        if screenSide == 0{
+//            //Top
+//            x = UIScreen.mainScreen().bounds.width * CGFloat(percent)
+//            y = UIScreen.mainScreen().bounds.height
+//            virus.position = CGPoint(x: x, y: y)
+//        }else
+            if screenSide == 1{
             //Bottom
             x = UIScreen.mainScreen().bounds.width * CGFloat(percent)
             y = 0.0

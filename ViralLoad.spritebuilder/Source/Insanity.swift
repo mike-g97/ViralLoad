@@ -25,18 +25,22 @@ class Insanity: CCNode, CCPhysicsCollisionDelegate {
     var gameStates :GameStates = .Title
     var virusSpeed :Int = 20
     
+
     var load :Int = 0{
         didSet{
+//            Runs whenever the value of load is changed
             loadPercentage.string = "\(load)"
         }
     }
     
     var currentScore :Int = 0{
         didSet{
+//           Runs whenever the value of currentScore is changed
             score.string = "\(currentScore)"
         }
     }
     
+//    Called when the CCB file is loaded
     func didLoadFromCCB(){
         //Enables multi touch and user touch
         userInteractionEnabled = true
@@ -51,11 +55,13 @@ class Insanity: CCNode, CCPhysicsCollisionDelegate {
         start()
     }
     
+//    Tutorial caption
     func info(){
         self.infoLabel.removeFromParent()
         self.infoButton.removeFromParent()
     }
     
+//    Called at the start of the game
     func start(){
         gameStates = .Playing
         
@@ -66,6 +72,7 @@ class Insanity: CCNode, CCPhysicsCollisionDelegate {
         }
     }
     
+//    Called when the pause button is hit
     func pause(){
             CCDirector.sharedDirector().pause()
             Singleton.sharedInstance.mode = "Insanity"
@@ -74,6 +81,7 @@ class Insanity: CCNode, CCPhysicsCollisionDelegate {
             CCDirector.sharedDirector().pushScene(pauseScene)
     }
     
+//    Called every second of gameplays
     override func update(delta: CCTime) {
         var randomSpawner = arc4random_uniform(101)
         var numOfVirusesSpawned = viruses.count
@@ -89,6 +97,7 @@ class Insanity: CCNode, CCPhysicsCollisionDelegate {
         }
     }
     
+//    Called whenever the user interacts with the screen
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         for virus in viruses {
             var virusWorldSpace = convertToWorldSpace(virus.position)

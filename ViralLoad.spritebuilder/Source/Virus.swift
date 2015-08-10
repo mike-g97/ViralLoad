@@ -26,5 +26,4 @@ class Virus: CCSprite {
         }
     }
     
-//  CallBack between vulnerable to invulnerable
 }

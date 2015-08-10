@@ -14,6 +14,7 @@ class InsanityGameOver: CCNode {
     weak var gameOverScore :CCLabelTTF!
     var score :Int!
     
+//    Called whenever the CCB file is loaded
     func  didLoadFromCCB(){
         self.position = ccp(CCDirector.sharedDirector().viewSize().width/2, CCDirector.sharedDirector().viewSize().height/4)
         
@@ -34,11 +35,14 @@ class InsanityGameOver: CCNode {
         Mixpanel.sharedInstance().registerSuperProperties(["Insanity High Score" : gameOverHighScore.string])
     }
     
+    
+//    Called when the restart button is hit
     func restart(){
         let insanityScene = CCBReader.loadAsScene("Insanity")
         CCDirector.sharedDirector().replaceScene(insanityScene)
     }
     
+//    Called whenever the quit button is hit
     func loadHome(){
         let homeScene = CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().replaceScene(homeScene)

@@ -14,6 +14,7 @@ class ClassicGameOver: CCNode {
     weak var gameOverScore :CCLabelTTF!
     var score :Int!
     
+//    Called when the CCB file is loaded
     func  didLoadFromCCB(){
         self.position = ccp(CCDirector.sharedDirector().viewSize().width/2, CCDirector.sharedDirector().viewSize().height/4)
         
@@ -34,11 +35,13 @@ class ClassicGameOver: CCNode {
         Mixpanel.sharedInstance().registerSuperProperties(["Classic High Score" : gameOverHighScore.string])
     }
     
+//    Called when the restart button is hit
     func restart(){
         let classicScene = CCBReader.loadAsScene("Classic")
         CCDirector.sharedDirector().replaceScene(classicScene)
     }
     
+//    Called when the quit button is hit
     func loadHome(){
         let homeScene = CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().replaceScene(homeScene)

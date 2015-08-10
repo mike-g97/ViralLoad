@@ -27,16 +27,19 @@ class Classic: CCNode {
     
     var load :Int = 0{
         didSet{
+//            Runs whenever the value of load is changed
             loadPercentage.string = "\(load)"
         }
     }
     
     var currentScore :Int = 0{
         didSet{
+//            Runs whenever the value of currentScore is changed
             score.string = "\(currentScore)"
         }
     }
     
+//    Called when the CCB file is loaded
     func didLoadFromCCB(){
         //Enables multi touch and user touch
         userInteractionEnabled = true
@@ -50,6 +53,7 @@ class Classic: CCNode {
         start()
     }
     
+//    Called at the start of the game
     func start(){
         gameStates = .Playing
         
@@ -64,6 +68,7 @@ class Classic: CCNode {
         }
     }
     
+//    Called when the pause button is hit
     func pause(){
             CCDirector.sharedDirector().pause()
             Singleton.sharedInstance.mode = "Classic"
@@ -72,6 +77,7 @@ class Classic: CCNode {
             CCDirector.sharedDirector().pushScene(pauseScene)
     }
     
+//    Called every second of gameplay
     override func update(delta: CCTime) {
         var randomSpawner = arc4random_uniform(101)
         var numOfVirusesSpawned = viruses.count
@@ -87,6 +93,7 @@ class Classic: CCNode {
         }
     }
     
+//    Called whenever the user interacts with the screen
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         for virus in viruses {
             var virusWorldSpace = convertToWorldSpace(virus.position)
@@ -141,8 +148,6 @@ class Classic: CCNode {
         
         return myBool
     }
-    
-    
     
     //  Spawn virus at a time on either four sides of the screen randomly
     func spawnVirus(){

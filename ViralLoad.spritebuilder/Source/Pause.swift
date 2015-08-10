@@ -11,6 +11,7 @@ import Foundation
 class Pause: CCNode {
     var highScore :CCLabelTTF!
     
+//    Called when the CCB file is loaded
     func didLoadFromCCB(){
         if Singleton.sharedInstance.mode == "Classic" {
             if Singleton.sharedInstance.classicHighScore == nil{
@@ -27,16 +28,19 @@ class Pause: CCNode {
         }
     }
     
+//    Called when the resume button is hit
     func resume(){
         CCDirector.sharedDirector().popScene()
         CCDirector.sharedDirector().resume()
     }
     
+//    Called when the quit button is hit
     func loadHome(){
         let homeScene = CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().replaceScene(homeScene)
     }
     
+//    Called when the restart button is hit
     func restart(){
         let gameplayScene = CCBReader.loadAsScene("\(Singleton.sharedInstance.mode)")
         CCDirector.sharedDirector().replaceScene(gameplayScene)

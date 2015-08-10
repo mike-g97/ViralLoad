@@ -15,6 +15,7 @@ class ViewHighScore: CCNode {
     var classicHighscore :Int!
     var insanityHighscore :Int!
     
+//    Called when the CCB file is loaded
     func didLoadFromCCB(){
         
         if Singleton.sharedInstance.classicHighScore == nil{
@@ -34,6 +35,7 @@ class ViewHighScore: CCNode {
         insanityHighScoreLabel.string = "\(insanityHighscore)"
     }
     
+//    Called when the back button is hit
     func loadHome(){
         let homeScreen = CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().replaceScene(homeScreen)

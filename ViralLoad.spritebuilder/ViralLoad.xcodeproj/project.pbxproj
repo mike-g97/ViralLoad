@@ -13,6 +13,8 @@
 		271160B01B7DCFD300C127FD /* SuperBomb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271160AF1B7DCFD300C127FD /* SuperBomb.swift */; };
 		275257231B4F1FEB00DB8160 /* Insanity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275257221B4F1FEB00DB8160 /* Insanity.swift */; };
 		2784A6431B55992C004FC297 /* InsanityGameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2784A6421B55992C004FC297 /* InsanityGameOver.swift */; };
+		27A322021B7E8A9300B65478 /* Grenade.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 27A322011B7E8A9300B65478 /* Grenade.mp3 */; };
+		27A322041B7E8A9C00B65478 /* Big Bomb.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 27A322031B7E8A9C00B65478 /* Big Bomb.mp3 */; };
 		27B1AD861B7140440061A31F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B1AD851B7140440061A31F /* CoreTelephony.framework */; };
 		27B1AD881B71404D0061A31F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B1AD871B71404D0061A31F /* SystemConfiguration.framework */; };
 		27B1AD8A1B71405F0061A31F /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B1AD891B71405F0061A31F /* Accelerate.framework */; };
@@ -246,6 +248,8 @@
 		271160AF1B7DCFD300C127FD /* SuperBomb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuperBomb.swift; path = Source/SuperBomb.swift; sourceTree = "<group>"; };
 		275257221B4F1FEB00DB8160 /* Insanity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Insanity.swift; path = Source/Insanity.swift; sourceTree = "<group>"; };
 		2784A6421B55992C004FC297 /* InsanityGameOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InsanityGameOver.swift; path = Source/InsanityGameOver.swift; sourceTree = "<group>"; };
+		27A322011B7E8A9300B65478 /* Grenade.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Grenade.mp3; sourceTree = "<group>"; };
+		27A322031B7E8A9C00B65478 /* Big Bomb.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Big Bomb.mp3"; sourceTree = "<group>"; };
 		27B1AD851B7140440061A31F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		27B1AD871B71404D0061A31F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		27B1AD891B71405F0061A31F /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -652,6 +656,8 @@
 		27B1AE531B71601A0061A31F /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				27A322011B7E8A9300B65478 /* Grenade.mp3 */,
+				27A322031B7E8A9C00B65478 /* Big Bomb.mp3 */,
 				27B1AE561B7160660061A31F /* explosion.mp3 */,
 			);
 			name = Music;
@@ -1152,6 +1158,7 @@
 				27B1AE461B7140850061A31F /* snapshot_config.json in Resources */,
 				27FD325D1B681A8B00435924 /* Images.xcassets in Resources */,
 				B7378978180762440076A88C /* Default@2x.png in Resources */,
+				27A322041B7E8A9C00B65478 /* Big Bomb.mp3 in Resources */,
 				27B1AE081B7140850061A31F /* Media.xcassets in Resources */,
 				B71F5914188484E7003F4D28 /* iPad@2x.png in Resources */,
 				B71F5913188484E7003F4D28 /* iPad.png in Resources */,
@@ -1170,6 +1177,7 @@
 				B71F5911188484E7003F4D28 /* iPad-old.png in Resources */,
 				27B1AE471B7140850061A31F /* test_variant.json in Resources */,
 				27B1AE331B7140850061A31F /* MPSurvey.storyboard in Resources */,
+				27A322021B7E8A9300B65478 /* Grenade.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

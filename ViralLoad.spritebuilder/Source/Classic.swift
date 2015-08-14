@@ -113,6 +113,7 @@ class Classic: CCNode {
             {
                 bomb.removeFromParent()
                 bomb.startExplosion(gamePhysicsNode)
+                OALSimpleAudio.sharedInstance().playEffect("Grenade.mp3", loop: false)
                 cameraShake(duration: 0.4, shakeX: 2, shakeY: 3)
                 bombs.removeAtIndex(find(bombs, bomb)!)
             }
@@ -127,6 +128,7 @@ class Classic: CCNode {
             {
                 superBomb.removeFromParent()
                 superBomb.startExplosion(gamePhysicsNode)
+                OALSimpleAudio.sharedInstance().playEffect("Big Bomb.mp3", loop: false)
                 cameraShake(duration: 0.6, shakeX: 2, shakeY: 5)
                 superBombs.removeAtIndex(find(superBombs, superBomb)!)
             }
@@ -169,7 +171,7 @@ class Classic: CCNode {
                 }
                 
                 //Super Bomb
-                if bossKillCount == 10{
+                if bossKillCount == 5{
                     spawnSuperBombAtLoc(virus.position)
                     bossKillCount = 0
                 }

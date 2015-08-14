@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SpriteKit
 
 class Classic: CCNode {
     
@@ -22,8 +23,13 @@ class Classic: CCNode {
     weak var gamePhysicsNode :CCPhysicsNode!
     var viruses :[Virus2] = []
     var bossViruses :[Virus2] = []
+    var bombs :[Bomb] = []
+    var superBombs :[SuperBomb] = []
     var gameStates :GameStates = .Title
     var virusSpeed :Int = 10
+    var virusKillCount :Int = 0
+    var bossKillCount :Int = 8
+    var randNum :Int = 0
     
     var load :Int = 0{
         didSet{
@@ -66,6 +72,8 @@ class Classic: CCNode {
         }else{
             self.unschedule("speedUpViruses")
         }
+        
+        self.schedule("adjustSpawnRate", interval: 5)
     }
     
 //    Called when the pause button is hit
@@ -79,11 +87,12 @@ class Classic: CCNode {
     
 //    Called every second of gameplay
     override func update(delta: CCTime) {
-        var randomSpawner = arc4random_uniform(101)
-        var numOfVirusesSpawned = viruses.count
-        var limit = 10
+        var randomSpawner = (Int)(arc4random_uniform(101))
+        var noSpawnCount = 0
+        var limit = 20
         
-        if randomSpawner <= 5 && numOfVirusesSpawned < limit{
+        
+        if randomSpawner <= randNum && viruses.count < limit{
             spawnVirus()
             limit++
         }
@@ -95,6 +104,34 @@ class Classic: CCNode {
     
 //    Called whenever the user interacts with the screen
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
+        
+        for bomb in bombs{
+            var bombWorldSpace = convertToWorldSpace(bomb.position)
+            
+            if Int(abs(touch.locationInWorld().x - bombWorldSpace.x)) < 30
+                && Int(abs(touch.locationInWorld().y - bombWorldSpace.y)) < 30
+            {
+                bomb.removeFromParent()
+                bomb.startExplosion(gamePhysicsNode)
+                cameraShake(duration: 0.4, shakeX: 2, shakeY: 3)
+                bombs.removeAtIndex(find(bombs, bomb)!)
+            }
+            
+        }
+        
+        for superBomb in superBombs{
+            var superBombWorldSpace = convertToWorldSpace(superBomb.position)
+            
+            if Int(abs(touch.locationInWorld().x - superBombWorldSpace.x)) < 30
+                && Int(abs(touch.locationInWorld().y - superBombWorldSpace.y)) < 30
+            {
+                superBomb.removeFromParent()
+                superBomb.startExplosion(gamePhysicsNode)
+                cameraShake(duration: 0.6, shakeX: 2, shakeY: 5)
+                superBombs.removeAtIndex(find(superBombs, superBomb)!)
+            }
+        }
+        
         for virus in viruses {
             var virusWorldSpace = convertToWorldSpace(virus.position)
             
@@ -105,7 +142,13 @@ class Classic: CCNode {
                     viruses.removeAtIndex(find(viruses, virus)!)
                     virus.removeFromParent()
                     currentScore++
+                    virusKillCount++
                     OALSimpleAudio.sharedInstance().playEffect("explosion.mp3", loop: false)
+                    
+                    if virusKillCount == 15 {
+                        spawnBombAtLoc(virus.position)
+                        virusKillCount = 0
+                    }
             }
         }
         
@@ -121,8 +164,16 @@ class Classic: CCNode {
                     bossViruses.removeAtIndex(find(bossViruses, virus)!)
                     virus.removeFromParent()
                     currentScore++
+                    bossKillCount++
                     OALSimpleAudio.sharedInstance().playEffect("explosion.mp3", loop: false)
                 }
+                
+                //Super Bomb
+                if bossKillCount == 10{
+                    spawnSuperBombAtLoc(virus.position)
+                    bossKillCount = 0
+                }
+                
             }
         }
     }
@@ -149,7 +200,27 @@ class Classic: CCNode {
         return myBool
     }
     
-    //  Spawn virus at a time on either four sides of the screen randomly
+    //  Detects collision between the collision types virus & explosion1
+    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, virus: Virus2!, explosion1: Explosion1!) -> ObjCBool {
+        if find(viruses, virus) != nil{
+            viruses.removeAtIndex(find(viruses, virus)!)
+        }
+        virus.removeFromParent()
+        load++
+       return true
+    }
+    
+    //  Detects collision between the collision types virus & explosion2
+    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, virus: Virus2!, explosion2: Explosion2!) -> ObjCBool {
+        if find(bossViruses, virus) != nil{
+            bossViruses.removeAtIndex(find(bossViruses, virus)!)
+        }
+        virus.removeFromParent()
+        load++
+        return true
+    }
+    
+    //  Spawn virus one at a time one of three sides of the screen randomly
     func spawnVirus(){
         let virusType = Int(arc4random_uniform(2))
         let screenSide = Int(arc4random_uniform(4))
@@ -176,7 +247,7 @@ class Classic: CCNode {
 //            y = UIScreen.mainScreen().bounds.height
 //            virus.position = CGPoint(x: x, y: y)
 //        }else
-            if screenSide == 1{
+        if screenSide == 1{
             //Bottom
             x = UIScreen.mainScreen().bounds.width * CGFloat(percent)
             y = 0.0
@@ -218,12 +289,13 @@ class Classic: CCNode {
         }
         
         // Generates position on either four sides of the screen
-        if screenSide == 0{
-            //Top
-            x = UIScreen.mainScreen().bounds.width * CGFloat(percent)
-            y = UIScreen.mainScreen().bounds.height
-            virus.position = CGPoint(x: x, y: y)
-        }else if screenSide == 1{
+//        if screenSide == 0{
+//            //Top
+//            x = UIScreen.mainScreen().bounds.width * CGFloat(percent)
+//            y = UIScreen.mainScreen().bounds.height
+//            virus.position = CGPoint(x: x, y: y)
+//        }else
+            if screenSide == 1{
             //Bottom
             x = UIScreen.mainScreen().bounds.width * CGFloat(percent)
             y = 0.0
@@ -242,6 +314,22 @@ class Classic: CCNode {
         
         virusMovementDirection(virus)
         bossViruses.append(virus)
+    }
+    
+    func spawnBombAtLoc(a :CGPoint){
+        var bomb = CCBReader.load("Bomb") as! Bomb
+        self.addChild(bomb)
+        bomb.scale = 0.15
+        bomb.position = a
+        bombs.append(bomb)
+    }
+    
+    func spawnSuperBombAtLoc(a :CGPoint){
+        var superBomb = CCBReader.load("Super Bomb") as! SuperBomb
+        self.addChild(superBomb)
+        superBomb.scale = 0.15
+        superBomb.position = a
+        superBombs.append(superBomb)
     }
     
     //  Speeds up velocity of viruses by 1
@@ -277,6 +365,7 @@ class Classic: CCNode {
         
         self.unschedule("speedUpViruses")
         self.unschedule("slowDownViruses")
+        self.unschedule("adjustSpawnRate")
         
         gameStates = .GameOver
         
@@ -289,6 +378,23 @@ class Classic: CCNode {
             return true
         }
         return false
+    }
+    
+    func cameraShake(duration a :Double, shakeX x :CGFloat, shakeY y :CGFloat){
+        let move = CCActionEaseBounceOut(action: CCActionMoveBy(duration: a, position: ccp(x, y)))
+        let moveBack = CCActionEaseBounceOut(action: move.reverse())
+        let shakeSequence = CCActionSequence(array: [move, moveBack])
+        runAction(shakeSequence)
+    }
+    
+    func adjustSpawnRate(){
+        var a = (Int)(arc4random_uniform(2) + 1)
+        var b = (Int)(arc4random_uniform(4) + 1)
+        if a == 0{
+            randNum -= b
+        }else if a == 1{
+            randNum += b
+        }
     }
     
 }

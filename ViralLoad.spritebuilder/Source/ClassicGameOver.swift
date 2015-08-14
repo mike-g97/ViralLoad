@@ -12,11 +12,11 @@ class ClassicGameOver: CCNode {
     let defaults = NSUserDefaults.standardUserDefaults()
     weak var gameOverHighScore :CCLabelTTF!
     weak var gameOverScore :CCLabelTTF!
-    var score :Int!
+    var score :Int = 0
     
 //    Called when the CCB file is loaded
     func  didLoadFromCCB(){
-        self.position = ccp(CCDirector.sharedDirector().viewSize().width/2, CCDirector.sharedDirector().viewSize().height/4)
+        self.position = ccp(CCDirector.sharedDirector().viewSize().width * 0.46, CCDirector.sharedDirector().viewSize().height * 0.25)
         
         score = Singleton.sharedInstance.classicScore
         gameOverScore.string = "\(score)"

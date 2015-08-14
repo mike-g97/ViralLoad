@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		270C15651B5698FA009D86A1 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270C15641B5698FA009D86A1 /* Singleton.swift */; };
+		271160A41B7DB34300C127FD /* Explosion1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271160A31B7DB34300C127FD /* Explosion1.swift */; };
+		271160AE1B7DCF7000C127FD /* Explosion2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271160AD1B7DCF7000C127FD /* Explosion2.swift */; };
+		271160B01B7DCFD300C127FD /* SuperBomb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271160AF1B7DCFD300C127FD /* SuperBomb.swift */; };
 		275257231B4F1FEB00DB8160 /* Insanity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275257221B4F1FEB00DB8160 /* Insanity.swift */; };
 		2784A6431B55992C004FC297 /* InsanityGameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2784A6421B55992C004FC297 /* InsanityGameOver.swift */; };
 		27B1AD861B7140440061A31F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B1AD851B7140440061A31F /* CoreTelephony.framework */; };
@@ -90,6 +93,7 @@
 		27F9EF501B58485D00A22E7F /* Virus2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9EF4F1B58485D00A22E7F /* Virus2.swift */; };
 		27F9EF521B58489000A22E7F /* Classic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9EF511B58489000A22E7F /* Classic.swift */; };
 		27F9EF541B584FCA00A22E7F /* GameModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9EF531B584FCA00A22E7F /* GameModes.swift */; };
+		27FB6B801B7D4A2F007F40BB /* Bomb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FB6B7F1B7D4A2F007F40BB /* Bomb.swift */; };
 		27FB740D1B50011C00E2D098 /* Virus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FB740C1B50011C00E2D098 /* Virus.swift */; };
 		27FD32491B59445200435924 /* ClassicGameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FD32481B59445200435924 /* ClassicGameOver.swift */; };
 		27FD32511B6124E000435924 /* Pause.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FD32501B6124E000435924 /* Pause.swift */; };
@@ -237,6 +241,9 @@
 
 /* Begin PBXFileReference section */
 		270C15641B5698FA009D86A1 /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Singleton.swift; path = Source/Singleton.swift; sourceTree = "<group>"; };
+		271160A31B7DB34300C127FD /* Explosion1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Explosion1.swift; path = Source/Explosion1.swift; sourceTree = "<group>"; };
+		271160AD1B7DCF7000C127FD /* Explosion2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Explosion2.swift; path = Source/Explosion2.swift; sourceTree = "<group>"; };
+		271160AF1B7DCFD300C127FD /* SuperBomb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuperBomb.swift; path = Source/SuperBomb.swift; sourceTree = "<group>"; };
 		275257221B4F1FEB00DB8160 /* Insanity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Insanity.swift; path = Source/Insanity.swift; sourceTree = "<group>"; };
 		2784A6421B55992C004FC297 /* InsanityGameOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InsanityGameOver.swift; path = Source/InsanityGameOver.swift; sourceTree = "<group>"; };
 		27B1AD851B7140440061A31F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -374,6 +381,7 @@
 		27F9EF4F1B58485D00A22E7F /* Virus2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Virus2.swift; path = Source/Virus2.swift; sourceTree = "<group>"; };
 		27F9EF511B58489000A22E7F /* Classic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Classic.swift; path = Source/Classic.swift; sourceTree = "<group>"; };
 		27F9EF531B584FCA00A22E7F /* GameModes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameModes.swift; path = Source/GameModes.swift; sourceTree = "<group>"; };
+		27FB6B7F1B7D4A2F007F40BB /* Bomb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bomb.swift; path = Source/Bomb.swift; sourceTree = "<group>"; };
 		27FB740C1B50011C00E2D098 /* Virus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Virus.swift; path = Source/Virus.swift; sourceTree = "<group>"; };
 		27FD32481B59445200435924 /* ClassicGameOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClassicGameOver.swift; path = Source/ClassicGameOver.swift; sourceTree = "<group>"; };
 		27FD32501B6124E000435924 /* Pause.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pause.swift; path = Source/Pause.swift; sourceTree = "<group>"; };
@@ -831,6 +839,10 @@
 				2784A6421B55992C004FC297 /* InsanityGameOver.swift */,
 				27FD32481B59445200435924 /* ClassicGameOver.swift */,
 				27FB740C1B50011C00E2D098 /* Virus.swift */,
+				27FB6B7F1B7D4A2F007F40BB /* Bomb.swift */,
+				271160AF1B7DCFD300C127FD /* SuperBomb.swift */,
+				271160A31B7DB34300C127FD /* Explosion1.swift */,
+				271160AD1B7DCF7000C127FD /* Explosion2.swift */,
 				27F9EF4F1B58485D00A22E7F /* Virus2.swift */,
 				27F9EF511B58489000A22E7F /* Classic.swift */,
 				27FD32501B6124E000435924 /* Pause.swift */,
@@ -1020,6 +1032,7 @@
 						CreatedOnToolsVersion = 6.0.1;
 					};
 					B77F1B2D17B978D7009739AE = {
+						DevelopmentTeam = 6TK8Q4KD6G;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
@@ -1261,6 +1274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27B1AE171B7140850061A31F /* MPApplicationStateSerializer.m in Sources */,
+				271160B01B7DCFD300C127FD /* SuperBomb.swift in Sources */,
 				27B1AE301B7140850061A31F /* MPPropertyDescription.m in Sources */,
 				27B1AE4B1B7140850061A31F /* UIView+MPHelpers.m in Sources */,
 				27B1AE481B7140850061A31F /* UIColor+MPColor.m in Sources */,
@@ -1278,6 +1292,7 @@
 				27B1AE361B7140850061A31F /* MPSurveyQuestionViewController.m in Sources */,
 				27B1AE1B1B7140850061A31F /* MPCGColorRefToNSStringValueTransformer.m in Sources */,
 				27B1AE161B7140850061A31F /* MPABTestDesignerTweakResponseMessage.m in Sources */,
+				271160A41B7DB34300C127FD /* Explosion1.swift in Sources */,
 				27B1AE1A1B7140850061A31F /* MPCGAffineTransformToNSDictionaryValueTransformer.m in Sources */,
 				27B1AE0D1B7140850061A31F /* MPABTestDesignerClearRequestMessage.m in Sources */,
 				27B1AE4A1B7140850061A31F /* UIImage+MPImageEffects.m in Sources */,
@@ -1289,6 +1304,7 @@
 				27B1AE111B7140850061A31F /* MPABTestDesignerDeviceInfoResponseMessage.m in Sources */,
 				27B1AE1E1B7140850061A31F /* MPCGSizeToNSDictionaryValueTransformer.m in Sources */,
 				27B1AE3E1B7140850061A31F /* MPUIEdgeInsetsToNSDictionaryValueTransformer.m in Sources */,
+				271160AE1B7DCF7000C127FD /* Explosion2.swift in Sources */,
 				27B1AE2A1B7140850061A31F /* MPObjectIdentityProvider.m in Sources */,
 				27B1AE121B7140850061A31F /* MPABTestDesignerDisconnectMessage.m in Sources */,
 				27B1AE431B7140850061A31F /* MPWebSocket.m in Sources */,
@@ -1337,6 +1353,7 @@
 				27B1AE1D1B7140850061A31F /* MPCGRectToNSDictionaryValueTransformer.m in Sources */,
 				27B1AE3F1B7140850061A31F /* MPUIFontToNSDictionaryValueTransformer.m in Sources */,
 				27B1AE351B7140850061A31F /* MPSurveyQuestion.m in Sources */,
+				27FB6B801B7D4A2F007F40BB /* Bomb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

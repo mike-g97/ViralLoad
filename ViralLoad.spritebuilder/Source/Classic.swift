@@ -28,7 +28,7 @@ class Classic: CCNode {
     var gameStates :GameStates = .Title
     var virusSpeed :Int = 10
     var virusKillCount :Int = 0
-    var bossKillCount :Int = 8
+    var bossKillCount :Int = 0
     var randNum :Int = 0
     
     var load :Int = 0{
@@ -202,7 +202,7 @@ class Classic: CCNode {
     
     //  Detects collision between the collision types virus & explosion1
     func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, virus: Virus2!, explosion1: Explosion1!) -> ObjCBool {
-        if find(viruses, virus) != nil{
+        if find(viruses, virus) != nil && virus != nil{
             viruses.removeAtIndex(find(viruses, virus)!)
         }
         virus.removeFromParent()
@@ -212,7 +212,7 @@ class Classic: CCNode {
     
     //  Detects collision between the collision types virus & explosion2
     func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, virus: Virus2!, explosion2: Explosion2!) -> ObjCBool {
-        if find(bossViruses, virus) != nil{
+        if find(bossViruses, virus) != nil && virus != nil{
             bossViruses.removeAtIndex(find(bossViruses, virus)!)
         }
         virus.removeFromParent()

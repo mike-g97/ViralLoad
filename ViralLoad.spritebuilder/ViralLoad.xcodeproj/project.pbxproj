@@ -15,6 +15,8 @@
 		2784A6431B55992C004FC297 /* InsanityGameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2784A6421B55992C004FC297 /* InsanityGameOver.swift */; };
 		27A322021B7E8A9300B65478 /* Grenade.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 27A322011B7E8A9300B65478 /* Grenade.mp3 */; };
 		27A322041B7E8A9C00B65478 /* Big Bomb.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 27A322031B7E8A9C00B65478 /* Big Bomb.mp3 */; };
+		27A322061B7E9E4D00B65478 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A322051B7E9E4D00B65478 /* GameKit.framework */; };
+		27A3220C1B7EA50B00B65478 /* GameCenterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A3220B1B7EA50B00B65478 /* GameCenterInteractor.swift */; };
 		27B1AD861B7140440061A31F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B1AD851B7140440061A31F /* CoreTelephony.framework */; };
 		27B1AD881B71404D0061A31F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B1AD871B71404D0061A31F /* SystemConfiguration.framework */; };
 		27B1AD8A1B71405F0061A31F /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B1AD891B71405F0061A31F /* Accelerate.framework */; };
@@ -250,6 +252,8 @@
 		2784A6421B55992C004FC297 /* InsanityGameOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InsanityGameOver.swift; path = Source/InsanityGameOver.swift; sourceTree = "<group>"; };
 		27A322011B7E8A9300B65478 /* Grenade.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Grenade.mp3; sourceTree = "<group>"; };
 		27A322031B7E8A9C00B65478 /* Big Bomb.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Big Bomb.mp3"; sourceTree = "<group>"; };
+		27A322051B7E9E4D00B65478 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		27A3220B1B7EA50B00B65478 /* GameCenterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameCenterInteractor.swift; path = Source/GameCenterInteractor.swift; sourceTree = "<group>"; };
 		27B1AD851B7140440061A31F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		27B1AD871B71404D0061A31F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		27B1AD891B71405F0061A31F /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -499,6 +503,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27A322061B7E9E4D00B65478 /* GameKit.framework in Frameworks */,
 				27B1AE511B71431B0061A31F /* Security.framework in Frameworks */,
 				27B1AE4F1B71430F0061A31F /* CFNetwork.framework in Frameworks */,
 				27B1AE4D1B7143020061A31F /* libicucore.dylib in Frameworks */,
@@ -838,6 +843,7 @@
 				27FD325C1B681A8B00435924 /* Images.xcassets */,
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				27B1AD8B1B7140850061A31F /* Mixpanel */,
+				27A3220B1B7EA50B00B65478 /* GameCenterInteractor.swift */,
 				7A046D7519E84C36004C4763 /* MainScene.swift */,
 				27F9EF4B1B58381E00A22E7F /* ViewHighScore.swift */,
 				275257221B4F1FEB00DB8160 /* Insanity.swift */,
@@ -906,6 +912,7 @@
 		B77F1B3017B978D7009739AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				27A322051B7E9E4D00B65478 /* GameKit.framework */,
 				27B1AE501B71431B0061A31F /* Security.framework */,
 				27B1AE4E1B71430F0061A31F /* CFNetwork.framework */,
 				27B1AE4C1B7143020061A31F /* libicucore.dylib */,
@@ -1284,6 +1291,7 @@
 				27B1AE171B7140850061A31F /* MPApplicationStateSerializer.m in Sources */,
 				271160B01B7DCFD300C127FD /* SuperBomb.swift in Sources */,
 				27B1AE301B7140850061A31F /* MPPropertyDescription.m in Sources */,
+				27A3220C1B7EA50B00B65478 /* GameCenterInteractor.swift in Sources */,
 				27B1AE4B1B7140850061A31F /* UIView+MPHelpers.m in Sources */,
 				27B1AE481B7140850061A31F /* UIColor+MPColor.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,

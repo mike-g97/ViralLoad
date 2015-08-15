@@ -206,6 +206,8 @@ class Classic: CCNode {
     func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, virus: Virus2!, explosion1: Explosion1!) -> ObjCBool {
         if find(viruses, virus) != nil && virus != nil{
             viruses.removeAtIndex(find(viruses, virus)!)
+        } else if virus == nil{
+            println("Bug")
         }
         virus.removeFromParent()
         load++

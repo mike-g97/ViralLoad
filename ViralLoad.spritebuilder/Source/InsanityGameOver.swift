@@ -29,6 +29,7 @@ class InsanityGameOver: CCNode {
             defaults.setInteger(score, forKey: "insanityHighScore")
             defaults.synchronize()
             gameOverHighScore.string = "\(score)"
+            GameCenterInteractor.sharedInstance.saveHighScore("Insanity", score: score)
         }
         
         Singleton.sharedInstance.insanityHighScore = defaults.integerForKey("insanityHighScore")

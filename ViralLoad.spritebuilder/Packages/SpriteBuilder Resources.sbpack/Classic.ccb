@@ -178,7 +178,7 @@
 								<key>value</key>
 								<array>
 									<real>289</real>
-									<real>167.53825378417969</real>
+									<real>167.53826904296875</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -206,6 +206,8 @@
 								<string>Computer.ccb</string>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -1755,8 +1757,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

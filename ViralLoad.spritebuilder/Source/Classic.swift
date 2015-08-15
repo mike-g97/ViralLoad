@@ -209,7 +209,6 @@ class Classic: CCNode {
             removeVirus(virus)
             virus.isColliding = false
             virus.removeFromParent()
-            load++
         }
        return true
     }
@@ -221,7 +220,6 @@ class Classic: CCNode {
             removeVirus(virus)
             virus.isColliding = false
             virus.removeFromParent()
-            load++
         }
         return true
     }

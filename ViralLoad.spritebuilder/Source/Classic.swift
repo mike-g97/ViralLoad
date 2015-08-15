@@ -204,23 +204,25 @@ class Classic: CCNode {
     
     //  Detects collision between the collision types virus & explosion1
     func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, virus: Virus2!, explosion1: Explosion1!) -> ObjCBool {
-        if find(viruses, virus) != nil && virus != nil{
-            viruses.removeAtIndex(find(viruses, virus)!)
-        } else if virus == nil{
-            println("Bug")
+        if virus != nil && virus.isColliding == false{
+            virus.isColliding = true
+            removeVirus(virus)
+            virus.isColliding = false
+            virus.removeFromParent()
+            load++
         }
-        virus.removeFromParent()
-        load++
        return true
     }
     
     //  Detects collision between the collision types virus & explosion2
     func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, virus: Virus2!, explosion2: Explosion2!) -> ObjCBool {
-        if find(bossViruses, virus) != nil && virus != nil{
-            bossViruses.removeAtIndex(find(bossViruses, virus)!)
+        if virus != nil && virus.isColliding == false{
+            virus.isColliding = true
+            removeVirus(virus)
+            virus.isColliding = false
+            virus.removeFromParent()
+            load++
         }
-        virus.removeFromParent()
-        load++
         return true
     }
     
@@ -360,6 +362,16 @@ class Classic: CCNode {
         var y = CGFloat(computer.position.y - virus.position.y) / CGFloat(virusSpeed)
         
         virus.physicsBody.velocity = ccp(x, y)
+    }
+    
+    func removeVirus(virus :Virus2){
+        if viruses.count > 0{
+            for i in reverse(0...viruses.count - 1){
+                if viruses[i].isEqual(virus){
+                    viruses.removeAtIndex(i)
+                }
+            }
+        }
     }
     
     //  Triggers once load reaches 100

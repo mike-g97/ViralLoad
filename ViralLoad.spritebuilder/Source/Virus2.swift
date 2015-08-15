@@ -10,5 +10,5 @@ import UIKit
 
 class Virus2: CCSprite {
     var tapCount :Int = 0
-    
+    var isColliding :Bool = false
 }

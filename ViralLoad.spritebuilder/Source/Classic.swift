@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class Classic: CCNode {
+class Classic: CCNode, CCPhysicsCollisionDelegate {
     
     enum GameStates {
         
@@ -21,8 +21,8 @@ class Classic: CCNode {
     weak var score :CCLabelTTF!
     weak var computer :CCSprite!
     weak var gamePhysicsNode :CCPhysicsNode!
-    var viruses :[Virus2] = []
-    var bossViruses :[Virus2] = []
+    var viruses :[BossVirus] = []
+    var bossViruses :[BossVirus] = []
     var bombs :[Bomb] = []
     var superBombs :[SuperBomb] = []
     var gameStates :GameStates = .Title
@@ -63,7 +63,7 @@ class Classic: CCNode {
     func start(){
         gameStates = .Playing
         
-        var randomBossSpawner = CCTime(arc4random_uniform(15) + 1)
+        let randomBossSpawner = CCTime(arc4random_uniform(15) + 1)
         self.schedule("spawnBossVirus", interval: randomBossSpawner)
         
         if canSpeedUpViruses() || virusSpeed >= 3{
@@ -87,7 +87,7 @@ class Classic: CCNode {
     
 //    Called every second of gameplay
     override func update(delta: CCTime) {
-        var randomSpawner = (Int)(arc4random_uniform(101))
+        let randomSpawner = (Int)(arc4random_uniform(101))
         var noSpawnCount = 0
         var limit = 20
         
@@ -106,7 +106,7 @@ class Classic: CCNode {
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         
         for bomb in bombs{
-            var bombWorldSpace = convertToWorldSpace(bomb.position)
+            let bombWorldSpace = convertToWorldSpace(bomb.position)
             
             if Int(abs(touch.locationInWorld().x - bombWorldSpace.x)) < 30
                 && Int(abs(touch.locationInWorld().y - bombWorldSpace.y)) < 30
@@ -115,13 +115,13 @@ class Classic: CCNode {
                 bomb.startExplosion(gamePhysicsNode)
                 OALSimpleAudio.sharedInstance().playEffect("Grenade.mp3", loop: false)
                 cameraShake(duration: 0.4, shakeX: 2, shakeY: 3)
-                bombs.removeAtIndex(find(bombs, bomb)!)
+                bombs.removeAtIndex(bombs.indexOf(bomb)!)
             }
             
         }
         
         for superBomb in superBombs{
-            var superBombWorldSpace = convertToWorldSpace(superBomb.position)
+            let superBombWorldSpace = convertToWorldSpace(superBomb.position)
             
             if Int(abs(touch.locationInWorld().x - superBombWorldSpace.x)) < 30
                 && Int(abs(touch.locationInWorld().y - superBombWorldSpace.y)) < 30
@@ -130,22 +130,22 @@ class Classic: CCNode {
                 superBomb.startExplosion(gamePhysicsNode)
                 OALSimpleAudio.sharedInstance().playEffect("Big Bomb.mp3", loop: false)
                 cameraShake(duration: 0.6, shakeX: 2, shakeY: 5)
-                superBombs.removeAtIndex(find(superBombs, superBomb)!)
+                superBombs.removeAtIndex(superBombs.indexOf(superBomb)!)
             }
         }
         
         for virus in viruses {
-            var virusWorldSpace = convertToWorldSpace(virus.position)
+            let virusWorldSpace = convertToWorldSpace(virus.position)
             
             if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 30
                 && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 30
                 {
                     
-                    viruses.removeAtIndex(find(viruses, virus)!)
+                    viruses.removeAtIndex(viruses.indexOf(virus)!)
                     virus.removeFromParent()
                     currentScore++
                     virusKillCount++
-                    OALSimpleAudio.sharedInstance().playEffect("explosion.mp3", loop: false)
+                   
                     
                     if virusKillCount == 15 {
                         spawnBombAtLoc(virus.position)
@@ -155,7 +155,7 @@ class Classic: CCNode {
         }
         
         for virus in bossViruses {
-            var virusWorldSpace = convertToWorldSpace(virus.position)
+            let virusWorldSpace = convertToWorldSpace(virus.position)
             
             if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 30
                 && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 30
@@ -163,7 +163,7 @@ class Classic: CCNode {
                 virus.tapCount += 1
                 
                 if (virus.tapCount == 2){
-                    bossViruses.removeAtIndex(find(bossViruses, virus)!)
+                    bossViruses.removeAtIndex(bossViruses.indexOf(virus)!)
                     virus.removeFromParent()
                     currentScore++
                     bossKillCount++
@@ -181,15 +181,15 @@ class Classic: CCNode {
     }
     
     //  Detects collision between the collision types virus & computer
-    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, virus: Virus2!, computer: CCNode!) -> ObjCBool {
+    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, virus: BossVirus!, computer: CCNode!) -> ObjCBool {
         if isGameOver() {
             triggerGameOver()
         }else if !isGameOver(){
             if (virus.scaleX == 0.018){
-                viruses.removeAtIndex(find(viruses, virus)!)
+                viruses.removeAtIndex(viruses.indexOf(virus)!)
                 load = load + 5
             }else if (virus.scaleX == 0.030){
-                bossViruses.removeAtIndex(find(bossViruses, virus)!)
+                bossViruses.removeAtIndex(bossViruses.indexOf(virus)!)
                 load = load + 10
             }
             virus.removeFromParent()
@@ -203,7 +203,7 @@ class Classic: CCNode {
     }
     
     //  Detects collision between the collision types virus & explosion1
-    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, virus: Virus2!, explosion1: Explosion1!) -> ObjCBool {
+    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, virus: BossVirus!, explosion1: Explosion1!) -> ObjCBool {
         if virus != nil && virus.isColliding == false{
             virus.isColliding = true
             removeVirus(virus)
@@ -214,7 +214,7 @@ class Classic: CCNode {
     }
     
     //  Detects collision between the collision types virus & explosion2
-    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, virus: Virus2!, explosion2: Explosion2!) -> ObjCBool {
+    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, virus: BossVirus!, explosion2: Explosion2!) -> ObjCBool {
         if virus != nil && virus.isColliding == false{
             virus.isColliding = true
             removeVirus(virus)
@@ -277,7 +277,7 @@ class Classic: CCNode {
         let virusType = Int(arc4random_uniform(2))
         let screenSide = Int(arc4random_uniform(4))
         let percent = Float(arc4random_uniform(101)) / 100
-        var virus :Virus2!
+        var virus :BossVirus!
         var x :CGFloat!
         var y :CGFloat!
         
@@ -321,7 +321,7 @@ class Classic: CCNode {
     }
     
     func spawnBombAtLoc(a :CGPoint){
-        var bomb = CCBReader.load("Bomb") as! Bomb
+        let bomb = CCBReader.load("Bomb") as! Bomb
         self.addChild(bomb)
         bomb.scale = 0.15
         bomb.position = a
@@ -329,7 +329,7 @@ class Classic: CCNode {
     }
     
     func spawnSuperBombAtLoc(a :CGPoint){
-        var superBomb = CCBReader.load("Super Bomb") as! SuperBomb
+        let superBomb = CCBReader.load("Super Bomb") as! SuperBomb
         self.addChild(superBomb)
         superBomb.scale = 0.15
         superBomb.position = a
@@ -355,16 +355,16 @@ class Classic: CCNode {
     }
     
     //  Sets velocity according to it's spawn position on the screen
-    func virusMovementDirection(virus :Virus2){
-        var x = CGFloat(computer.position.x - virus.position.x) / CGFloat(virusSpeed)
-        var y = CGFloat(computer.position.y - virus.position.y) / CGFloat(virusSpeed)
+    func virusMovementDirection(virus :BossVirus){
+        let x = CGFloat(computer.position.x - virus.position.x) / CGFloat(virusSpeed)
+        let y = CGFloat(computer.position.y - virus.position.y) / CGFloat(virusSpeed)
         
         virus.physicsBody.velocity = ccp(x, y)
     }
     
-    func removeVirus(virus :Virus2){
+    func removeVirus(virus :BossVirus){
         if viruses.count > 0{
-            for i in reverse(0...viruses.count - 1){
+            for i in Array((0...viruses.count - 1).reverse()){
                 if viruses[i].isEqual(virus){
                     viruses.removeAtIndex(i)
                 }
@@ -402,8 +402,8 @@ class Classic: CCNode {
     }
     
     func adjustSpawnRate(){
-        var a = (Int)(arc4random_uniform(2) + 1)
-        var b = (Int)(arc4random_uniform(4) + 1)
+        let a = (Int)(arc4random_uniform(2) + 1)
+        let b = (Int)(arc4random_uniform(4) + 1)
         if a == 0{
             randNum -= b
         }else if a == 1{

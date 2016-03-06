@@ -8,7 +8,8 @@
 
 import UIKit
 
-class Virus2: CCSprite {
+class BossVirus: CCSprite {
+    //Separate data from behavior
     var tapCount :Int = 0
     var isColliding :Bool = false
 }

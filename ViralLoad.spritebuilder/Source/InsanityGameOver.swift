@@ -22,7 +22,7 @@ class InsanityGameOver: CCNode {
         gameOverScore.string = "\(score)"
         
         
-        var highScore = defaults.integerForKey("insanityHighScore")
+        let highScore = defaults.integerForKey("insanityHighScore")
         gameOverHighScore.string = "\(highScore)"
         
         if highScore < score{

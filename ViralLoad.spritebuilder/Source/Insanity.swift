@@ -83,8 +83,8 @@ class Insanity: CCNode, CCPhysicsCollisionDelegate {
     
 //    Called every second of gameplays
     override func update(delta: CCTime) {
-        var randomSpawner = arc4random_uniform(101)
-        var numOfVirusesSpawned = viruses.count
+        let randomSpawner = arc4random_uniform(101)
+        let numOfVirusesSpawned = viruses.count
         var limit = 10
         
         if randomSpawner <= 5 && numOfVirusesSpawned < limit{
@@ -100,13 +100,13 @@ class Insanity: CCNode, CCPhysicsCollisionDelegate {
 //    Called whenever the user interacts with the screen
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         for virus in viruses {
-            var virusWorldSpace = convertToWorldSpace(virus.position)
+            let virusWorldSpace = convertToWorldSpace(virus.position)
  
             if Int(abs(touch.locationInWorld().x - virusWorldSpace.x)) < 30
                 && Int(abs(touch.locationInWorld().y - virusWorldSpace.y)) < 30
                 && virus.mode == .Vulnerable{
                     
-                    viruses.removeAtIndex(find(viruses, virus)!)
+                    viruses.removeAtIndex(viruses.indexOf(virus)!)
                     virus.removeFromParent()
                     currentScore++
                     OALSimpleAudio.sharedInstance().playEffect("explosion.mp3", loop: false)
@@ -125,7 +125,7 @@ class Insanity: CCNode, CCPhysicsCollisionDelegate {
         if isGameOver() {
             triggerGameOver()
         }else if !isGameOver(){
-            viruses.removeAtIndex(find(viruses, virus)!)
+            viruses.removeAtIndex(viruses.indexOf(virus)!)
             virus.removeFromParent()
             load = load + 5
         }
@@ -205,8 +205,8 @@ class Insanity: CCNode, CCPhysicsCollisionDelegate {
     
     //  Sets velocity according to it's spawn position on the screen
     func virusMovementDirection(virus :Virus){
-        var x = CGFloat(computer.position.x - virus.position.x) / CGFloat(virusSpeed)
-        var y = CGFloat(computer.position.y - virus.position.y) / CGFloat(virusSpeed)
+        let x = CGFloat(computer.position.x - virus.position.x) / CGFloat(virusSpeed)
+        let y = CGFloat(computer.position.y - virus.position.y) / CGFloat(virusSpeed)
  
         virus.physicsBody.velocity = ccp(x, y)
     }

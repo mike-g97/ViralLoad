@@ -13,9 +13,9 @@ class Virus: CCSprite {
     enum virusMode {
         case Invulnerable, Vulnerable
     }
-
+    // Seperate data from behavior
     var mode :virusMode = .Invulnerable
-        
+    var tapCount: Int = 0;
     
 //  CallBack between invulnerable to vulnerable
     func invulnerable(){

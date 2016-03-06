@@ -22,7 +22,7 @@ class ClassicGameOver: CCNode {
         gameOverScore.string = "\(score)"
         
         
-        var highScore = defaults.integerForKey("classicHighScore")
+        let highScore = defaults.integerForKey("classicHighScore")
         gameOverHighScore.string = "\(highScore)"
         
         if highScore < score{

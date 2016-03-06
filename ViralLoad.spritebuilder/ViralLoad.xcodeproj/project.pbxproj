@@ -94,7 +94,7 @@
 		27B1AE511B71431B0061A31F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B1AE501B71431B0061A31F /* Security.framework */; };
 		27B1AE571B7160660061A31F /* explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 27B1AE561B7160660061A31F /* explosion.mp3 */; };
 		27F9EF4C1B58381E00A22E7F /* ViewHighScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9EF4B1B58381E00A22E7F /* ViewHighScore.swift */; };
-		27F9EF501B58485D00A22E7F /* Virus2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9EF4F1B58485D00A22E7F /* Virus2.swift */; };
+		27F9EF501B58485D00A22E7F /* BossVirus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9EF4F1B58485D00A22E7F /* BossVirus.swift */; };
 		27F9EF521B58489000A22E7F /* Classic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9EF511B58489000A22E7F /* Classic.swift */; };
 		27F9EF541B584FCA00A22E7F /* GameModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9EF531B584FCA00A22E7F /* GameModes.swift */; };
 		27FB6B801B7D4A2F007F40BB /* Bomb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FB6B7F1B7D4A2F007F40BB /* Bomb.swift */; };
@@ -386,7 +386,7 @@
 		27B1AE521B714D6C0061A31F /* Mixpanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Mixpanel.h; path = Pods/Mixpanel/Mixpanel/Mixpanel.h; sourceTree = "<group>"; };
 		27B1AE561B7160660061A31F /* explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion.mp3; sourceTree = "<group>"; };
 		27F9EF4B1B58381E00A22E7F /* ViewHighScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewHighScore.swift; path = Source/ViewHighScore.swift; sourceTree = "<group>"; };
-		27F9EF4F1B58485D00A22E7F /* Virus2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Virus2.swift; path = Source/Virus2.swift; sourceTree = "<group>"; };
+		27F9EF4F1B58485D00A22E7F /* BossVirus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BossVirus.swift; path = Source/BossVirus.swift; sourceTree = "<group>"; };
 		27F9EF511B58489000A22E7F /* Classic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Classic.swift; path = Source/Classic.swift; sourceTree = "<group>"; };
 		27F9EF531B584FCA00A22E7F /* GameModes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameModes.swift; path = Source/GameModes.swift; sourceTree = "<group>"; };
 		27FB6B7F1B7D4A2F007F40BB /* Bomb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bomb.swift; path = Source/Bomb.swift; sourceTree = "<group>"; };
@@ -855,7 +855,7 @@
 				271160AF1B7DCFD300C127FD /* SuperBomb.swift */,
 				271160A31B7DB34300C127FD /* Explosion1.swift */,
 				271160AD1B7DCF7000C127FD /* Explosion2.swift */,
-				27F9EF4F1B58485D00A22E7F /* Virus2.swift */,
+				27F9EF4F1B58485D00A22E7F /* BossVirus.swift */,
 				27F9EF511B58489000A22E7F /* Classic.swift */,
 				27FD32501B6124E000435924 /* Pause.swift */,
 				27F9EF531B584FCA00A22E7F /* GameModes.swift */,
@@ -1038,6 +1038,8 @@
 		B77F1B2617B978D7009739AE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = Apportable;
 				TargetAttributes = {
@@ -1045,7 +1047,7 @@
 						CreatedOnToolsVersion = 6.0.1;
 					};
 					B77F1B2D17B978D7009739AE = {
-						DevelopmentTeam = 6TK8Q4KD6G;
+						DevelopmentTeam = QNFZM6396L;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
@@ -1351,7 +1353,7 @@
 				27B1AE071B7140850061A31F /* _MPTweakBindObserver.m in Sources */,
 				27B1AE0F1B7140850061A31F /* MPABTestDesignerConnection.m in Sources */,
 				27B1AE141B7140850061A31F /* MPABTestDesignerSnapshotResponseMessage.m in Sources */,
-				27F9EF501B58485D00A22E7F /* Virus2.swift in Sources */,
+				27F9EF501B58485D00A22E7F /* BossVirus.swift in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
 				27B1AE321B7140850061A31F /* MPSurvey.m in Sources */,
 				27B1AE421B7140850061A31F /* MPVariant.m in Sources */,
@@ -1673,7 +1675,7 @@
 					"\"Source/libs/cocos2d-iphone/external/ObjectAL\"/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -1710,7 +1712,7 @@
 					"\"Source/libs/cocos2d-iphone/external/ObjectAL\"/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-lz",
